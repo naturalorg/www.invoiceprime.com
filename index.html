@@ -1905,6 +1905,12 @@
 
     <!-- JavaScript -->
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            
+        // Google Sheets URL
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwpYVQ9FKj3ltMNXM0HrGn2P7HMpJQawVhwW43GIG70yE7iKCwZ23T0gvZPRCNomqpY/exec';
+
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
@@ -1915,10 +1921,10 @@
             }
         });
 
-        // FAQ Accordion
+        // FAQ Accordion - FIXED VERSION
         document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
+            button.addEventListener('click', function() {
+                const faqItem = this.parentElement;
                 const isActive = faqItem.classList.contains('active');
                 
                 // Close all FAQs
@@ -2009,22 +2015,6 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                }
-            });
-        });
-
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                const isActive = faqItem.classList.contains('active');
-                
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                if (!isActive) {
-                    faqItem.classList.add('active');
                 }
             });
         });
@@ -2146,6 +2136,8 @@
         });
 
         console.log('✅ Invoice Prime loaded successfully!');
+        
+        }); // End DOMContentLoaded
     </script>
 
 </body>
