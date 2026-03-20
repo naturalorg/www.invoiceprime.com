@@ -1,0 +1,2152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Prime - Smart GST Billing & Invoicing Software | Managed by Professional CAs</title>
+    <meta name="description" content="Transform your business with Invoice Prime - India's smartest GST billing software. Managed by certified CAs and finance experts. Free GST advisory included. Create professional invoices in seconds.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='56' y2='56' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%234338CA'/%3E%3Cstop offset='100%25' stop-color='%236366F1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M28 4L8 12V28C8 39.5 17 49.5 28 52C39 49.5 48 39.5 48 28V12L28 4Z' fill='url(%23g)'/%3E%3Crect x='19' y='18' width='18' height='2.5' rx='1.25' fill='white' fill-opacity='0.95'/%3E%3Crect x='19' y='23' width='14' height='2.5' rx='1.25' fill='white' fill-opacity='0.75'/%3E%3Crect x='19' y='28' width='16' height='2.5' rx='1.25' fill='white' fill-opacity='0.75'/%3E%3Cpath d='M28 34.5L29.8 37.2L33 36.3L31.5 39.2L33.5 41.5L30.2 41.3L28 44L25.8 41.3L22.5 41.5L24.5 39.2L23 36.3L26.2 37.2Z' fill='%23FCD34D' fill-opacity='0.97'/%3E%3C/svg%3E">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4338CA;
+            --primary-light: #6366F1;
+            --primary-dark: #3730A3;
+            --gold: #F5A623;
+            --gold-light: #FFD166;
+            --gold-dark: #C47A00;
+            --bg: #FAFBFF;
+            --bg-dark: #F5F7FF;
+            --surface: #FFFFFF;
+            --text: #1A1A2E;
+            --text-light: #4A4A68;
+            --text-lighter: #6B7280;
+            --border: #E5E7EB;
+            --border-light: #F3F4F6;
+            --success: #10B981;
+            --gradient-primary: linear-gradient(135deg, #4338CA 0%, #6366F1 100%);
+            --gradient-gold: linear-gradient(135deg, #F5A623 0%, #FFD166 100%);
+            --gradient-hero: linear-gradient(180deg, #FAFBFF 0%, #F0F2FF 100%);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 25px rgba(67, 56, 202, 0.1);
+            --shadow-xl: 0 20px 40px rgba(67, 56, 202, 0.15);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text);
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .container-wide {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header/Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-text {
+            font-family: 'Sora', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-subtitle {
+            font-size: 11px;
+            color: var(--text-lighter);
+            font-weight: 500;
+            margin-top: -4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 14px rgba(67, 56, 202, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(67, 56, 202, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-gold {
+            background: var(--gradient-gold);
+            color: white;
+            box-shadow: 0 4px 14px rgba(245, 166, 35, 0.3);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 166, 35, 0.4);
+        }
+
+        .btn-large {
+            padding: 16px 36px;
+            font-size: 17px;
+            border-radius: 14px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(245, 166, 35, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 56px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            animation: slideUp 0.8s ease;
+        }
+
+        .hero-text h1 .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text h1 .highlight-gold {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            line-height: 1.6;
+            animation: slideUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: slideUp 0.8s ease 0.4s backwards;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 24px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+            animation: slideUp 0.8s ease 0.6s backwards;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .badge-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--success);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: slideUp 0.8s ease 0.3s backwards;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: white;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .trust-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .trust-text {
+            font-size: 16px;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .trust-logos {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .trust-logo {
+            height: 32px;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .trust-logo:hover {
+            opacity: 1;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title {
+            font-size: 44px;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 36px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-primary);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .feature-card:nth-child(2) .feature-icon {
+            background: var(--gradient-gold);
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Insights Section */
+        .insights {
+            background: var(--bg-dark);
+            padding: 100px 0;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+            margin-top: 60px;
+        }
+
+        .insight-card {
+            background: white;
+            border: 2px solid var(--border-light);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .insight-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .insight-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .insight-card > p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .insight-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .insight-features li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Screenshot Showcase */
+        .showcase {
+            padding: 100px 0;
+            background: var(--bg-dark);
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .showcase-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s ease;
+        }
+
+        .showcase-item:hover {
+            transform: scale(1.02);
+        }
+
+        .showcase-item img {
+            width: 100%;
+            display: block;
+        }
+
+        .showcase-item.large {
+            grid-column: span 2;
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .why-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            font-size: 17px;
+            color: var(--text-light);
+        }
+
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            margin-top: 2px;
+        }
+
+        /* Video Demo Section */
+        .video-demo {
+            padding: 100px 0;
+            background: var(--gradient-hero);
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 60px auto 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            aspect-ratio: 16/9;
+            background: #000;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+            color: white;
+            font-size: 18px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 48px;
+            color: var(--primary-light);
+            opacity: 0.2;
+        }
+
+        .stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .star {
+            color: var(--gold);
+            font-size: 18px;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .author-avatar.ps {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .author-avatar.rk {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .author-avatar.ad {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .author-info h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: var(--text-lighter);
+        }
+
+        /* Contact Form Section */
+        .contact {
+            padding: 100px 0;
+            background: var(--bg-dark);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .contact-info h3 {
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+
+        .contact-info p {
+            font-size: 17px;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: white;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-method-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .contact-method-text h4 {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .contact-method-text p {
+            font-size: 14px;
+            color: var(--text-lighter);
+            margin: 0;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .faq-grid {
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary-light);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 24px;
+            background: white;
+            border: none;
+            text-align: left;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--bg);
+        }
+
+        .faq-icon {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 24px 24px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1A1A2E;
+            color: #E5E7EB;
+            padding: 60px 0 24px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo-text {
+            font-family: 'Sora', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-description {
+            color: #9CA3AF;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #9CA3AF;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            text-align: center;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 44px;
+            }
+
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .showcase-item.large {
+                grid-column: span 1;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 17px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .btn-large {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Modal Popup */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 550px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--bg);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 30px 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Modal Popup -->
+    <div class="modal-overlay" id="demoModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">×</button>
+            <div class="section-header">
+                <span class="section-tag">Book Your Free Demo</span>
+                <h2 class="section-title">Let's Get Started!</h2>
+                <p class="section-subtitle">Fill in your details and we'll contact you shortly</p>
+            </div>
+
+            <form id="modalForm">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="modal-name" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" id="modal-phone" required placeholder="Enter your phone number">
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" id="modal-email" required placeholder="Enter your email">
+                </div>
+
+                <div class="form-group">
+                    <label>Business Name</label>
+                    <input type="text" id="modal-business" placeholder="Enter your business name">
+                </div>
+
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" id="modal-city" placeholder="Enter your city">
+                </div>
+
+                <div class="form-group">
+                    <label>Message / Requirements</label>
+                    <textarea id="modal-message" placeholder="Tell us about your requirements"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large" style="width: 100%;">📧 Submit & Continue to WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <svg class="logo-icon" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="g" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#4338CA"/>
+                                <stop offset="100%" stop-color="#6366F1"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M28 4L8 12V28C8 39.5 17 49.5 28 52C39 49.5 48 39.5 48 28V12L28 4Z" fill="url(#g)"/>
+                        <rect x="19" y="18" width="18" height="2.5" rx="1.25" fill="white" fill-opacity="0.95"/>
+                        <rect x="19" y="23" width="14" height="2.5" rx="1.25" fill="white" fill-opacity="0.75"/>
+                        <rect x="19" y="28" width="16" height="2.5" rx="1.25" fill="white" fill-opacity="0.75"/>
+                        <path d="M28 34.5L29.8 37.2L33 36.3L31.5 39.2L33.5 41.5L30.2 41.3L28 44L25.8 41.3L22.5 41.5L24.5 39.2L23 36.3L26.2 37.2Z" fill="#FCD34D" fill-opacity="0.97"/>
+                    </svg>
+                    <div>
+                        <div class="logo-text">Invoice Prime</div>
+                        <div class="logo-subtitle">Smart GST Billing</div>
+                    </div>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <div class="nav-cta">
+                    <a href="https://naturalorg.github.io/ims.business.com/" class="btn btn-outline">Login</a>
+                    <button class="btn btn-primary open-modal">Book Free Demo</button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>
+                        <span class="highlight">Transform Your Business</span><br>
+                        with Smart GST Invoicing
+                    </h1>
+                    <p class="hero-subtitle">
+                        India's most trusted invoicing software, managed by <strong>certified CAs and finance experts</strong>. 
+                        Get complimentary GST advisory with every subscription. Create professional invoices in seconds.
+                    </p>
+                    <div class="hero-cta">
+                        <button class="btn btn-primary btn-large open-modal">
+                            📞 Book Free Demo
+                        </button>
+                        <a href="https://naturalorg.github.io/ims.business.com/" class="btn btn-outline btn-large">
+                            Login to Dashboard
+                        </a>
+                    </div>
+                    <div class="hero-badges">
+                        <div class="badge">
+                            <svg class="badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Managed by Professional CAs
+                        </div>
+                        <div class="badge">
+                            <svg class="badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Free GST Advisory Included
+                        </div>
+                        <div class="badge">
+                            <svg class="badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            100% Secure & Cloud-Based
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/hero-professional-woman.jpg" alt="Professional working on Invoice Prime software">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-content">
+                <p class="trust-text">Trusted by businesses across India</p>
+                <div class="trust-logos">
+                    <img src="assets/visa-logo.svg" alt="Visa" class="trust-logo">
+                    <img src="assets/mastercard-logo.svg" alt="Mastercard" class="trust-logo">
+                    <img src="assets/paypal-logo.svg" alt="PayPal" class="trust-logo">
+                    <img src="assets/stripe-logo.svg" alt="Stripe" class="trust-logo">
+                    <img src="assets/upi-logo.svg" alt="UPI" class="trust-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">Why Invoice Prime?</span>
+                <h2 class="section-title">Everything You Need to<br>Run Your Business</h2>
+                <p class="section-subtitle">Professional invoicing made simple, backed by expert financial guidance</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">👨‍💼</div>
+                    <h3>Expert Management</h3>
+                    <p>Your invoicing software is managed and monitored by a dedicated panel of certified Chartered Accountants and finance professionals. Get expert support whenever you need it.</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">📋</div>
+                    <h3>Complimentary GST Advisory</h3>
+                    <p>Every subscription includes free GST compliance advisory services. Our CAs help you navigate complex tax regulations and ensure your business stays compliant effortlessly.</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning-Fast Invoicing</h3>
+                    <p>Create professional GST-compliant invoices in seconds. Choose from 60+ templates or customize your own. Add your logo, rates, and send directly to clients.</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">📊</div>
+                    <h3>Smart Reports & Analytics</h3>
+                    <p>Generate GSTR-1, GSTR-3B reports instantly. Track payments, expenses, and business performance with real-time dashboards and insights.</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Cloud Storage</h3>
+                    <p>Your data is encrypted and stored securely in the cloud. Access your invoices and reports from anywhere, on any device, anytime.</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile & Desktop Ready</h3>
+                    <p>Work seamlessly across all devices. Whether you're at your desk or on the go, Invoice Prime adapts perfectly to your workflow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section - How It Works -->
+    <section class="insights" id="insights">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">How It Works</span>
+                <h2 class="section-title">Deep Insights Into Our System</h2>
+                <p class="section-subtitle">Understanding the powerful technology behind Invoice Prime</p>
+            </div>
+
+            <div class="insights-grid">
+                <!-- Data Management -->
+                <div class="insight-card scroll-reveal">
+                    <div class="insight-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        📊
+                    </div>
+                    <h3>Smart Data Management</h3>
+                    <p>Your business data organized intelligently</p>
+                    <ul class="insight-features">
+                        <li>✓ Automatic data organization</li>
+                        <li>✓ Real-time synchronization</li>
+                        <li>✓ Advanced search & filters</li>
+                        <li>✓ Data export in multiple formats</li>
+                    </ul>
+                </div>
+
+                <!-- Access Control -->
+                <div class="insight-card scroll-reveal">
+                    <div class="insight-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        🔐
+                    </div>
+                    <h3>Secure Access Control</h3>
+                    <p>Control who can access what</p>
+                    <ul class="insight-features">
+                        <li>✓ Role-based permissions</li>
+                        <li>✓ Activity logging & audit trails</li>
+                        <li>✓ Two-factor authentication</li>
+                        <li>✓ IP restriction options</li>
+                    </ul>
+                </div>
+
+                <!-- Multiple Users -->
+                <div class="insight-card scroll-reveal">
+                    <div class="insight-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        👥
+                    </div>
+                    <h3>Multi-User Collaboration</h3>
+                    <p>Team-based workflow management</p>
+                    <ul class="insight-features">
+                        <li>✓ Unlimited team members</li>
+                        <li>✓ Custom user roles</li>
+                        <li>✓ Real-time collaboration</li>
+                        <li>✓ Task assignment system</li>
+                    </ul>
+                </div>
+
+                <!-- Cloud Network -->
+                <div class="insight-card scroll-reveal">
+                    <div class="insight-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        ☁️
+                    </div>
+                    <h3>Cloud Infrastructure</h3>
+                    <p>Built on AWS for 99.9% uptime</p>
+                    <ul class="insight-features">
+                        <li>✓ Auto-scaling servers</li>
+                        <li>✓ Daily automated backups</li>
+                        <li>✓ Global CDN delivery</li>
+                        <li>✓ Lightning-fast performance</li>
+                    </ul>
+                </div>
+
+                <!-- Security -->
+                <div class="insight-card scroll-reveal">
+                    <div class="insight-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        🛡️
+                    </div>
+                    <h3>Enterprise Security</h3>
+                    <p>Military-grade data protection</p>
+                    <ul class="insight-features">
+                        <li>✓ 256-bit SSL encryption</li>
+                        <li>✓ GDPR compliant</li>
+                        <li>✓ Regular security audits</li>
+                        <li>✓ Secure data centers</li>
+                    </ul>
+                </div>
+
+                <!-- Reports -->
+                <div class="insight-card scroll-reveal">
+                    <div class="insight-icon" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        📈
+                    </div>
+                    <h3>Advanced Reporting</h3>
+                    <p>Powerful insights at your fingertips</p>
+                    <ul class="insight-features">
+                        <li>✓ GSTR-1 & GSTR-3B reports</li>
+                        <li>✓ Custom report builder</li>
+                        <li>✓ Visual analytics dashboard</li>
+                        <li>✓ Export to PDF/Excel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshot Showcase -->
+    <section class="showcase" id="how-it-works">
+        <div class="container-wide">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">See It In Action</span>
+                <h2 class="section-title">Powerful Features,<br>Beautiful Interface</h2>
+                <p class="section-subtitle">Experience the simplicity of professional invoicing</p>
+            </div>
+
+            <div class="showcase-grid">
+                <div class="showcase-item large scroll-reveal">
+                    <img src="assets/screenshot-dashboard.jpg" alt="Invoice Prime Dashboard">
+                </div>
+                <div class="showcase-item scroll-reveal">
+                    <img src="assets/screenshot-invoice.jpg" alt="Create Invoice">
+                </div>
+                <div class="showcase-item scroll-reveal">
+                    <img src="assets/screenshot-reports.jpg" alt="GST Reports">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="why-grid">
+                <div class="why-image scroll-reveal">
+                    <img src="assets/ca-team-professional.jpg" alt="Professional CA team managing Invoice Prime">
+                </div>
+                <div class="why-content scroll-reveal">
+                    <span class="section-tag">The Invoice Prime Advantage</span>
+                    <h2 class="section-title" style="margin-bottom: 24px;">Why Businesses Choose Us</h2>
+                    
+                    <ul class="checklist">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>Managed by Certified CAs & Financial Experts</strong> - Professional oversight for your peace of mind</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>Complimentary GST Advisory Services</strong> - Expert tax guidance included with every plan</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>GSTR-1 & GSTR-3B Ready Reports</strong> - GST filing made effortless</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>Secure Cloud Storage</strong> - Bank-level encryption for your business data</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>24/7 Expert Support</strong> - Our team is always here to help</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>Mobile & Desktop Compatible</strong> - Work from anywhere, on any device</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span><strong>60+ Professional Templates</strong> - Beautiful invoices that impress clients</span>
+                        </li>
+                    </ul>
+
+                    <div style="margin-top: 32px;">
+                        <button class="btn btn-gold btn-large open-modal">
+                            Start Your Free Demo Today
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Demo Section -->
+    <section class="video-demo">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">Watch Demo</span>
+                <h2 class="section-title">See Invoice Prime in Action</h2>
+                <p class="section-subtitle">Learn how easy it is to manage your invoicing and GST compliance</p>
+            </div>
+
+            <div class="video-container scroll-reveal">
+                <!-- Autoplay Video (no controls) -->
+                <video autoplay loop muted playsinline style="width: 100%; border-radius: 16px; box-shadow: var(--shadow-xl);">
+                    <source src="assets/demo-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">Real experiences from real business owners</p>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card scroll-reveal">
+                    <div class="quote-icon">"</div>
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "Invoice Prime has transformed how we handle billing. The complimentary CA support is invaluable - they helped us optimize our GST compliance saving us hours every month!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar ps">PS</div>
+                        <div class="author-info">
+                            <h4>Priya Sharma</h4>
+                            <p>Owner, Sharma Textiles</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card scroll-reveal">
+                    <div class="quote-icon">"</div>
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "As a small business, having professional CA support included was a game-changer. The software is incredibly easy to use, and the team is always available when I need help."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar rk">RK</div>
+                        <div class="author-info">
+                            <h4>Rajesh Kumar</h4>
+                            <p>CEO, TechSolutions India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card scroll-reveal">
+                    <div class="quote-icon">"</div>
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "The mobile accessibility is fantastic! I can create and send invoices from anywhere. The expert team ensures I never worry about GST compliance anymore."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar ad">AD</div>
+                        <div class="author-info">
+                            <h4>Anita Desai</h4>
+                            <p>Founder, Desai Consulting</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">Get Started</span>
+                <h2 class="section-title">Book Your Free Demo Today</h2>
+                <p class="section-subtitle">Experience Invoice Prime with a personalized demo from our experts</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info scroll-reveal">
+                    <h3>Let's Transform Your Business Together</h3>
+                    <p>
+                        Our team of certified CAs and finance experts is ready to help you streamline your invoicing and 
+                        ensure GST compliance. Book a free demo or reach out directly through any of these channels.
+                    </p>
+
+                    <div class="contact-methods">
+                        <a href="https://wa.me/919638001444?text=Hi,%20I%20want%20to%20book%20a%20free%20demo%20of%20Invoice%20Prime" class="contact-method">
+                            <div class="contact-method-icon">📱</div>
+                            <div class="contact-method-text">
+                                <h4>WhatsApp Us</h4>
+                                <p>+91 96380 01444</p>
+                            </div>
+                        </a>
+
+                        <a href="tel:+917624807370" class="contact-method">
+                            <div class="contact-method-icon">📞</div>
+                            <div class="contact-method-text">
+                                <h4>Call Us</h4>
+                                <p>+91 76248 07370 / +91 96380 01444</p>
+                            </div>
+                        </a>
+
+                        <a href="/cdn-cgi/l/email-protection#ff919e8b8a8d9e938cc9ccc9ccbf98929e9693d19c9092" class="contact-method">
+                            <div class="contact-method-icon">✉️</div>
+                            <div class="contact-method-text">
+                                <h4>Email Us</h4>
+                                <p><span class="__cf_email__" data-cfemail="620c03161710030e115451545122050f030b0e4c010d0f">[email&#160;protected]</span></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form scroll-reveal" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="business">Business Name</label>
+                        <input type="text" id="business" name="business" placeholder="Enter your business name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" placeholder="Enter your city">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message / Requirements</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your requirements"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large form-submit">
+                        📧 Send Demo Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about Invoice Prime</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item scroll-reveal">
+                    <button class="faq-question">
+                        <span>What makes Invoice Prime different from other invoicing software?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Invoice Prime is the only invoicing software managed by a dedicated panel of certified Chartered Accountants and finance professionals. Every subscription includes complimentary GST advisory services, ensuring your business stays compliant while you focus on growth.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item scroll-reveal">
+                    <button class="faq-question">
+                        <span>Is the CA advisory service really free?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes, absolutely! Our complimentary GST advisory service is included with every subscription plan. Our certified CAs help you navigate GST compliance, answer your tax-related questions, and provide expert guidance to optimize your business finances.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item scroll-reveal">
+                    <button class="faq-question">
+                        <span>Can I use Invoice Prime on my mobile phone?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes! Invoice Prime is fully responsive and works seamlessly on all devices - desktop computers, tablets, and mobile phones. You can create and send invoices from anywhere, at any time.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item scroll-reveal">
+                    <button class="faq-question">
+                        <span>What GST reports can I generate?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Invoice Prime generates all essential GST reports including GSTR-1, GSTR-3B, and detailed sales reports. Our system automatically organizes your data for easy GST filing, saving you hours of manual work.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item scroll-reveal">
+                    <button class="faq-question">
+                        <span>Is my data secure?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Absolutely. We use bank-level encryption to protect your data. All information is stored securely in the cloud with regular backups, and we follow strict security protocols to ensure your business data remains private and protected.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item scroll-reveal">
+                    <button class="faq-question">
+                        <span>How do I get started with Invoice Prime?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Getting started is easy! Book a free demo using the contact form above or reach out via WhatsApp. Our team will guide you through the setup process and provide personalized training to help you make the most of Invoice Prime.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-brand">
+                        <svg class="logo-icon" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="g2" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#4338CA"/>
+                                    <stop offset="100%" stop-color="#6366F1"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M28 4L8 12V28C8 39.5 17 49.5 28 52C39 49.5 48 39.5 48 28V12L28 4Z" fill="url(#g2)"/>
+                            <rect x="19" y="18" width="18" height="2.5" rx="1.25" fill="white" fill-opacity="0.95"/>
+                            <rect x="19" y="23" width="14" height="2.5" rx="1.25" fill="white" fill-opacity="0.75"/>
+                            <rect x="19" y="28" width="16" height="2.5" rx="1.25" fill="white" fill-opacity="0.75"/>
+                            <path d="M28 34.5L29.8 37.2L33 36.3L31.5 39.2L33.5 41.5L30.2 41.3L28 44L25.8 41.3L22.5 41.5L24.5 39.2L23 36.3L26.2 37.2Z" fill="#FCD34D" fill-opacity="0.97"/>
+                        </svg>
+                        <span class="footer-logo-text">Invoice Prime</span>
+                    </div>
+                    <p class="footer-description">
+                        India's smartest GST invoicing software, managed by certified CAs and finance experts. 
+                        Transform your business with professional invoicing and complimentary tax advisory.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">📘</a>
+                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon">📷</a>
+                        <a href="#" class="social-icon">💼</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="https://naturalorg.github.io/ims.business.com/">Login</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+917624807370">+91 76248 07370</a></li>
+                        <li><a href="tel:+919638001444">+91 96380 01444</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#d5bbb4a1a0a7b4b9a6e3e6e3e695b2b8b4bcb9fbb6bab8"><span class="__cf_email__" data-cfemail="7816190c0d0a19140b4e4b4e4b381f15191114561b1715">[email&#160;protected]</span></a></li>
+                        <li><a href="https://wa.me/919638001444">WhatsApp Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Invoice Prime. All rights reserved. Managed by Professionals | Making GST Compliance Effortless</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked FAQ if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact Form Submission (Google Sheets Integration)
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                business: document.getElementById('business').value,
+                city: document.getElementById('city').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+            };
+
+            // TODO: Replace with your Google Sheets Web App URL
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwpYVQ9FKj3ltMNXM0HrGn2P7HMpJQawVhwW43GIG70yE7iKCwZ23T0gvZPRCNomqpY/exec';
+
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                // Show success message
+                alert('Thank you! Your demo request has been submitted. We will contact you soon!');
+                form.reset();
+                
+                // Also redirect to WhatsApp
+                window.open('https://wa.me/919638001444?text=Hi,%20I%20just%20submitted%20a%20demo%20request%20form', '_blank');
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error submitting the form. Please contact us directly via WhatsApp.');
+                window.open('https://wa.me/919638001444?text=Hi,%20I%20want%20to%20book%20a%20free%20demo%20of%20Invoice%20Prime', '_blank');
+            }
+        });
+
+        // Mobile menu toggle (basic implementation)
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        mobileMenuBtn?.addEventListener('click', () => {
+            alert('Mobile menu - to be implemented based on your design preferences');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        
+        const revealOnScroll = () => {
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('revealed');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // Modal functionality
+        const modal = document.getElementById('demoModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalForm = document.getElementById('modalForm');
+        const openModalBtns = document.querySelectorAll('.open-modal');
+
+        // Open modal
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close modal
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close modal on overlay click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Modal form submission
+        modalForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = modalForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            const formData = {
+                name: document.getElementById('modal-name').value,
+                phone: document.getElementById('modal-phone').value,
+                email: document.getElementById('modal-email').value,
+                business: document.getElementById('modal-business').value,
+                city: document.getElementById('modal-city').value,
+                message: document.getElementById('modal-message').value,
+                timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+            };
+
+            submitBtn.textContent = '⏳ Submitting...';
+            submitBtn.disabled = true;
+
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                submitBtn.textContent = '✅ Success! Opening WhatsApp...';
+                submitBtn.style.background = '#10B981';
+
+                const whatsappMessage = encodeURIComponent(
+                    `Hi! I want to book a free demo of Invoice Prime.\n\n` +
+                    `Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n` +
+                    `Business: ${formData.business || 'N/A'}\nCity: ${formData.city || 'N/A'}\n` +
+                    `Message: ${formData.message || 'N/A'}`
+                );
+
+                setTimeout(() => {
+                    window.open(`https://wa.me/919638001444?text=${whatsappMessage}`, '_blank');
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    modalForm.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = '';
+                }, 1500);
+
+            } catch (error) {
+                console.error('Error:', error);
+                const whatsappMessage = encodeURIComponent(
+                    `Hi! I want to book a free demo of Invoice Prime.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}`
+                );
+                window.open(`https://wa.me/919638001444?text=${whatsappMessage}`, '_blank');
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                modalForm.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        console.log('✅ Invoice Prime loaded successfully!');
+    </script>
+
+</body>
+</html>
