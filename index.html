@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice Prime - Smart GST Billing & Invoicing Software | Managed by Professional CAs</title>
-    <meta name="description" content="Transform your business with Invoice Prime - India's smartest GST billing software. Managed by certified CAs and finance experts. Free GST advisory included. Create professional invoices in seconds.">
+    <title>BluBills - Smart GST Billing & Invoicing Software | Managed by Professional CAs</title>
+    <meta name="description" content="Transform your business with BluBills - India's smartest GST billing software. Managed by certified CAs and finance experts. Free GST advisory included. Create professional invoices in seconds.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -97,6 +97,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 16px 0;
+            gap: 8px;
         }
 
         .logo {
@@ -149,8 +150,9 @@
 
         .nav-cta {
             display: flex;
-            gap: 12px;
+            gap: 8px;
             align-items: center;
+            flex-shrink: 0;
         }
 
         .mobile-menu-btn {
@@ -1236,6 +1238,15 @@
                 display: block;
             }
 
+            /* Hide 'Book Free Demo' nav button on mobile, keep Login + hamburger */
+            .nav-cta .btn-primary:not(.mobile-menu-btn) {
+                display: none;
+            }
+
+            .logo-text {
+                font-size: 20px;
+            }
+
             .hero {
                 padding: 100px 0 60px;
             }
@@ -1358,6 +1369,67 @@
             }
         }
 
+        /* Mobile Menu Drawer */
+        .mobile-menu-drawer {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 280px;
+            height: 100%;
+            background: white;
+            z-index: 9998;
+            box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+            flex-direction: column;
+            padding: 80px 32px 32px;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mobile-menu-drawer.open {
+            transform: translateX(0);
+        }
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 9997;
+        }
+        .mobile-menu-overlay.open { display: block; }
+        .mobile-menu-drawer .mobile-nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .mobile-menu-drawer .mobile-nav-links a {
+            display: block;
+            padding: 14px 0;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-light);
+            transition: color 0.2s;
+        }
+        .mobile-menu-drawer .mobile-nav-links a:hover { color: var(--primary); }
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--bg);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .mobile-menu-cta { margin-top: 24px; }
+
     </style>
 </head>
 <body>
@@ -1402,8 +1474,26 @@
                     <textarea id="modal-message" placeholder="Tell us about your requirements"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-large" style="width: 100%;">📧 Submit & Continue to WhatsApp</button>
+                <button type="submit" class="btn btn-primary btn-large" style="width: 100%;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg> Submit &amp; Continue to WhatsApp</button>
             </form>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <!-- Mobile Menu Drawer -->
+    <div class="mobile-menu-drawer" id="mobileMenuDrawer">
+        <button class="mobile-menu-close" id="mobileMenuClose"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+        <ul class="mobile-nav-links">
+            <li><a href="#features" class="mobile-nav-link">Features</a></li>
+            <li><a href="#how-it-works" class="mobile-nav-link">How It Works</a></li>
+            <li><a href="#testimonials" class="mobile-nav-link">Testimonials</a></li>
+            <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-menu-cta">
+            <a href="https://naturalorg.github.io/client.mgt.com/" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;margin-bottom:12px;">Login</a>
+            <button class="btn btn-primary open-modal" style="width:100%;justify-content:center;">Book Free Demo</button>
         </div>
     </div>
 
@@ -1426,7 +1516,7 @@
                         <path d="M28 34.5L29.8 37.2L33 36.3L31.5 39.2L33.5 41.5L30.2 41.3L28 44L25.8 41.3L22.5 41.5L24.5 39.2L23 36.3L26.2 37.2Z" fill="#FCD34D" fill-opacity="0.97"/>
                     </svg>
                     <div>
-                        <div class="logo-text">Invoice Prime</div>
+                        <div class="logo-text"><span style="-webkit-text-fill-color:#1A1A2E;color:#1A1A2E;">Blu</span><span style="background:linear-gradient(135deg,#F5A623,#FFD166);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Bills</span></div>
                         <div class="logo-subtitle">Smart GST Billing</div>
                     </div>
                 </a>
@@ -1442,7 +1532,7 @@
                 <div class="nav-cta">
                     <a href="https://naturalorg.github.io/client.mgt.com/" target="_blank" class="btn btn-outline">Login</a>
                     <button class="btn btn-primary open-modal">Book Free Demo</button>
-                    <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
                 </div>
             </nav>
         </div>
@@ -1463,7 +1553,7 @@
                     </p>
                     <div class="hero-cta">
                         <button class="btn btn-primary btn-large open-modal">
-                            📞 Book Free Demo
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg> Book Free Demo
                         </button>
                         <a href="https://naturalorg.github.io/client.mgt.com/" target="_blank" class="btn btn-outline btn-large">
                             Login to Dashboard
@@ -1491,7 +1581,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="assets/hero-professional-woman.jpg" alt="Professional working on Invoice Prime software">
+                    <img src="assets/hero-professional-woman.jpg" alt="Professional working on BluBills software">
                 </div>
             </div>
         </div>
@@ -1502,19 +1592,19 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item scroll-reveal">
-                    <div class="stat-icon">⚡</div>
+                    <div class="stat-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
                     <div class="stat-number" data-target="10000">0</div>
                     <div class="stat-label">Invoices Generated</div>
                 </div>
 
                 <div class="stat-item scroll-reveal">
-                    <div class="stat-icon">📊</div>
+                    <div class="stat-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
                     <div class="stat-number" data-target="99.9">0</div>
                     <div class="stat-label">Accuracy Rate %</div>
                 </div>
 
                 <div class="stat-item scroll-reveal">
-                    <div class="stat-icon">🕐</div>
+                    <div class="stat-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
                     <div class="stat-number" data-target="24">0</div>
                     <div class="stat-label">Hour Support</div>
                 </div>
@@ -1526,46 +1616,46 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-header scroll-reveal">
-                <span class="section-tag">Why Invoice Prime?</span>
+                <span class="section-tag">Why BluBills?</span>
                 <h2 class="section-title">Everything You Need to<br>Run Your Business</h2>
                 <p class="section-subtitle">Professional invoicing made simple, backed by expert financial guidance</p>
             </div>
 
             <div class="features-grid">
                 <div class="feature-card scroll-reveal">
-                    <div class="feature-icon">👨‍💼</div>
+                    <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
                     <h3>Expert Management</h3>
                     <p>Your invoicing software is managed and monitored by a dedicated panel of certified Chartered Accountants and finance professionals. Get expert support whenever you need it.</p>
                 </div>
 
                 <div class="feature-card scroll-reveal">
-                    <div class="feature-icon">📋</div>
+                    <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
                     <h3>Complimentary GST Advisory</h3>
                     <p>Every subscription includes free GST compliance advisory services. Our CAs help you navigate complex tax regulations and ensure your business stays compliant effortlessly.</p>
                 </div>
 
                 <div class="feature-card scroll-reveal">
-                    <div class="feature-icon">⚡</div>
+                    <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
                     <h3>Lightning-Fast Invoicing</h3>
                     <p>Create professional GST-compliant invoices in seconds. Choose from 60+ templates or customize your own. Add your logo, rates, and send directly to clients.</p>
                 </div>
 
                 <div class="feature-card scroll-reveal">
-                    <div class="feature-icon">📊</div>
+                    <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
                     <h3>Smart Reports & Analytics</h3>
                     <p>Generate GSTR-1, GSTR-3B reports instantly. Track payments, expenses, and business performance with real-time dashboards and insights.</p>
                 </div>
 
                 <div class="feature-card scroll-reveal">
-                    <div class="feature-icon">🔒</div>
+                    <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
                     <h3>Secure Cloud Storage</h3>
                     <p>Your data is encrypted and stored securely in the cloud. Access your invoices and reports from anywhere, on any device, anytime.</p>
                 </div>
 
                 <div class="feature-card scroll-reveal">
-                    <div class="feature-icon">📱</div>
+                    <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
                     <h3>Mobile & Desktop Ready</h3>
-                    <p>Work seamlessly across all devices. Whether you're at your desk or on the go, Invoice Prime adapts perfectly to your workflow.</p>
+                    <p>Work seamlessly across all devices. Whether you're at your desk or on the go, BluBills adapts perfectly to your workflow.</p>
                 </div>
             </div>
         </div>
@@ -1577,97 +1667,91 @@
             <div class="section-header scroll-reveal">
                 <span class="section-tag">How It Works</span>
                 <h2 class="section-title">Deep Insights Into Our System</h2>
-                <p class="section-subtitle">Understanding the powerful technology behind Invoice Prime</p>
+                <p class="section-subtitle">Understanding the powerful technology behind BluBills</p>
             </div>
 
             <div class="insights-grid">
                 <!-- Data Management -->
                 <div class="insight-card scroll-reveal">
-                    <div class="insight-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        📊
+                    <div class="insight-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
                     </div>
                     <h3>Smart Data Management</h3>
                     <p>Your business data organized intelligently</p>
                     <ul class="insight-features">
-                        <li>✓ Automatic data organization</li>
-                        <li>✓ Real-time synchronization</li>
-                        <li>✓ Advanced search & filters</li>
-                        <li>✓ Data export in multiple formats</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Automatic data organization</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Real-time synchronization</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Advanced search & filters</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Data export in multiple formats</li>
                     </ul>
                 </div>
 
                 <!-- Access Control -->
                 <div class="insight-card scroll-reveal">
-                    <div class="insight-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        🔐
+                    <div class="insight-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
                     </div>
                     <h3>Secure Access Control</h3>
                     <p>Control who can access what</p>
                     <ul class="insight-features">
-                        <li>✓ Role-based permissions</li>
-                        <li>✓ Activity logging & audit trails</li>
-                        <li>✓ Two-factor authentication</li>
-                        <li>✓ IP restriction options</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Role-based permissions</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Activity logging & audit trails</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Two-factor authentication</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>IP restriction options</li>
                     </ul>
                 </div>
 
                 <!-- Multiple Users -->
                 <div class="insight-card scroll-reveal">
-                    <div class="insight-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        👥
+                    <div class="insight-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
                     </div>
                     <h3>Multi-User Collaboration</h3>
                     <p>Team-based workflow management</p>
                     <ul class="insight-features">
-                        <li>✓ Unlimited team members</li>
-                        <li>✓ Custom user roles</li>
-                        <li>✓ Real-time collaboration</li>
-                        <li>✓ Task assignment system</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Unlimited team members</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Custom user roles</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Real-time collaboration</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Task assignment system</li>
                     </ul>
                 </div>
 
                 <!-- Cloud Network -->
                 <div class="insight-card scroll-reveal">
-                    <div class="insight-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                        ☁️
+                    <div class="insight-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
                     </div>
                     <h3>Cloud Infrastructure</h3>
                     <p>Built on AWS for 99.9% uptime</p>
                     <ul class="insight-features">
-                        <li>✓ Auto-scaling servers</li>
-                        <li>✓ Daily automated backups</li>
-                        <li>✓ Global CDN delivery</li>
-                        <li>✓ Lightning-fast performance</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Auto-scaling servers</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Daily automated backups</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Global CDN delivery</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Lightning-fast performance</li>
                     </ul>
                 </div>
 
                 <!-- Security -->
                 <div class="insight-card scroll-reveal">
-                    <div class="insight-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-                        🛡️
+                    <div class="insight-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
                     <h3>Enterprise Security</h3>
                     <p>Military-grade data protection</p>
                     <ul class="insight-features">
-                        <li>✓ 256-bit SSL encryption</li>
-                        <li>✓ GDPR compliant</li>
-                        <li>✓ Regular security audits</li>
-                        <li>✓ Secure data centers</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>256-bit SSL encryption</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>GDPR compliant</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Regular security audits</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Secure data centers</li>
                     </ul>
                 </div>
 
                 <!-- Reports -->
                 <div class="insight-card scroll-reveal">
-                    <div class="insight-icon" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-                        📈
+                    <div class="insight-icon" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
                     </div>
                     <h3>Advanced Reporting</h3>
                     <p>Powerful insights at your fingertips</p>
                     <ul class="insight-features">
-                        <li>✓ GSTR-1 & GSTR-3B reports</li>
-                        <li>✓ Custom report builder</li>
-                        <li>✓ Visual analytics dashboard</li>
-                        <li>✓ Export to PDF/Excel</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>GSTR-1 & GSTR-3B reports</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Custom report builder</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Visual analytics dashboard</li>
+                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Export to PDF/Excel</li>
                     </ul>
                 </div>
             </div>
@@ -1685,7 +1769,7 @@
 
             <div class="showcase-grid">
                 <div class="showcase-item large scroll-reveal">
-                    <img src="assets/screenshot-dashboard.jpg" alt="Invoice Prime Dashboard">
+                    <img src="assets/screenshot-dashboard.jpg" alt="BluBills Dashboard">
                 </div>
                 <div class="showcase-item scroll-reveal">
                     <img src="assets/screenshot-invoice.jpg" alt="Create Invoice">
@@ -1709,25 +1793,25 @@
             <div class="mobile-content">
                 <div class="mobile-features scroll-reveal">
                     <div class="mobile-feature">
-                        <div class="mobile-feature-icon">📱</div>
+                        <div class="mobile-feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
                         <h3>Create Invoices On The Go</h3>
                         <p>Generate professional GST invoices from anywhere, anytime with just a few taps</p>
                     </div>
 
                     <div class="mobile-feature">
-                        <div class="mobile-feature-icon">📊</div>
+                        <div class="mobile-feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
                         <h3>Real-Time Analytics</h3>
                         <p>Check your revenue, expenses, and profit margins instantly on your mobile</p>
                     </div>
 
                     <div class="mobile-feature">
-                        <div class="mobile-feature-icon">🔔</div>
+                        <div class="mobile-feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div>
                         <h3>Instant Notifications</h3>
                         <p>Get alerts for payments received, invoices due, and important updates</p>
                     </div>
 
                     <div class="mobile-feature">
-                        <div class="mobile-feature-icon">☁️</div>
+                        <div class="mobile-feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div>
                         <h3>Cloud Sync</h3>
                         <p>All your data syncs automatically across mobile, tablet, and desktop</p>
                     </div>
@@ -1737,7 +1821,7 @@
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen">
-                            <img src="assets/mobile-dashboard.png" alt="Invoice Prime Mobile Dashboard" class="mobile-screenshot">
+                            <img src="assets/mobile-dashboard.png" alt="BluBills Mobile Dashboard" class="mobile-screenshot">
                         </div>
                         <div class="phone-button"></div>
                     </div>
@@ -1751,39 +1835,39 @@
         <div class="container">
             <div class="why-grid">
                 <div class="why-image scroll-reveal">
-                    <img src="assets/ca-team-professional.jpg" alt="Professional CA team managing Invoice Prime">
+                    <img src="assets/ca-team-professional.jpg" alt="Professional CA team managing BluBills">
                 </div>
                 <div class="why-content scroll-reveal">
-                    <span class="section-tag">The Invoice Prime Advantage</span>
+                    <span class="section-tag">The BluBills Advantage</span>
                     <h2 class="section-title" style="margin-bottom: 24px;">Why Businesses Choose Us</h2>
                     
                     <ul class="checklist">
                         <li>
-                            <span class="check-icon">✓</span>
+                            <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
                             <span><strong>Managed by Certified CAs & Financial Experts</strong> - Professional oversight for your peace of mind</span>
                         </li>
                         <li>
-                            <span class="check-icon">✓</span>
+                            <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
                             <span><strong>Complimentary GST Advisory Services</strong> - Expert tax guidance included with every plan</span>
                         </li>
                         <li>
-                            <span class="check-icon">✓</span>
+                            <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
                             <span><strong>GSTR-1 & GSTR-3B Ready Reports</strong> - GST filing made effortless</span>
                         </li>
                         <li>
-                            <span class="check-icon">✓</span>
+                            <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
                             <span><strong>Secure Cloud Storage</strong> - Bank-level encryption for your business data</span>
                         </li>
                         <li>
-                            <span class="check-icon">✓</span>
+                            <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
                             <span><strong>24/7 Expert Support</strong> - Our team is always here to help</span>
                         </li>
                         <li>
-                            <span class="check-icon">✓</span>
+                            <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
                             <span><strong>Mobile & Desktop Compatible</strong> - Work from anywhere, on any device</span>
                         </li>
                         <li>
-                            <span class="check-icon">✓</span>
+                            <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
                             <span><strong>60+ Professional Templates</strong> - Beautiful invoices that impress clients</span>
                         </li>
                     </ul>
@@ -1803,7 +1887,7 @@
         <div class="container">
             <div class="section-header scroll-reveal">
                 <span class="section-tag">Watch Demo</span>
-                <h2 class="section-title">See Invoice Prime in Action</h2>
+                <h2 class="section-title">See BluBills in Action</h2>
                 <p class="section-subtitle">Learn how easy it is to manage your invoicing and GST compliance</p>
             </div>
 
@@ -1837,7 +1921,7 @@
                         <span class="star">★</span>
                     </div>
                     <p class="testimonial-text">
-                        "Invoice Prime has transformed how we handle billing. The complimentary CA support is invaluable - they helped us optimize our GST compliance saving us hours every month!"
+                        "BluBills has transformed how we handle billing. The complimentary CA support is invaluable - they helped us optimize our GST compliance saving us hours every month!"
                     </p>
                     <div class="testimonial-author">
                         <div class="author-avatar ps">PS</div>
@@ -1899,7 +1983,7 @@
             <div class="section-header scroll-reveal">
                 <span class="section-tag">Get Started</span>
                 <h2 class="section-title">Book Your Free Demo Today</h2>
-                <p class="section-subtitle">Experience Invoice Prime with a personalized demo from our experts</p>
+                <p class="section-subtitle">Experience BluBills with a personalized demo from our experts</p>
             </div>
 
             <div class="contact-grid">
@@ -1912,7 +1996,7 @@
 
                     <div class="contact-methods">
                         <a href="https://wa.me/919638001444?text=Hi,%20I%20want%20to%20book%20a%20free%20demo%20of%20Invoice%20Prime" class="contact-method">
-                            <div class="contact-method-icon">📱</div>
+                            <div class="contact-method-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
                             <div class="contact-method-text">
                                 <h4>WhatsApp Us</h4>
                                 <p>+91 96380 01444</p>
@@ -1920,7 +2004,7 @@
                         </a>
 
                         <a href="tel:+917624807370" class="contact-method">
-                            <div class="contact-method-icon">📞</div>
+                            <div class="contact-method-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
                             <div class="contact-method-text">
                                 <h4>Call Us</h4>
                                 <p>+91 76248 07370 / +91 96380 01444</p>
@@ -1928,7 +2012,7 @@
                         </a>
 
                         <a href="mailto:naturals6363@gmail.com" class="contact-method">
-                            <div class="contact-method-icon">✉️</div>
+                            <div class="contact-method-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
                             <div class="contact-method-text">
                                 <h4>Email Us</h4>
                                 <p>naturals6363@gmail.com</p>
@@ -1969,7 +2053,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-large form-submit">
-                        📧 Send Demo Request
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Demo Request
                     </button>
                 </form>
             </div>
@@ -1982,18 +2066,18 @@
             <div class="section-header scroll-reveal">
                 <span class="section-tag">FAQ</span>
                 <h2 class="section-title">Frequently Asked Questions</h2>
-                <p class="section-subtitle">Everything you need to know about Invoice Prime</p>
+                <p class="section-subtitle">Everything you need to know about BluBills</p>
             </div>
 
             <div class="faq-grid">
                 <div class="faq-item scroll-reveal">
                     <button class="faq-question">
-                        <span>What makes Invoice Prime different from other invoicing software?</span>
-                        <span class="faq-icon">▼</span>
+                        <span>What makes BluBills different from other invoicing software?</span>
+                        <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Invoice Prime is the only invoicing software managed by a dedicated panel of certified Chartered Accountants and finance professionals. Every subscription includes complimentary GST advisory services, ensuring your business stays compliant while you focus on growth.
+                            BluBills is the only invoicing software managed by a dedicated panel of certified Chartered Accountants and finance professionals. Every subscription includes complimentary GST advisory services, ensuring your business stays compliant while you focus on growth.
                         </div>
                     </div>
                 </div>
@@ -2001,7 +2085,7 @@
                 <div class="faq-item scroll-reveal">
                     <button class="faq-question">
                         <span>Is the CA advisory service really free?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
@@ -2012,12 +2096,12 @@
 
                 <div class="faq-item scroll-reveal">
                     <button class="faq-question">
-                        <span>Can I use Invoice Prime on my mobile phone?</span>
-                        <span class="faq-icon">▼</span>
+                        <span>Can I use BluBills on my mobile phone?</span>
+                        <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Yes! Invoice Prime is fully responsive and works seamlessly on all devices - desktop computers, tablets, and mobile phones. You can create and send invoices from anywhere, at any time.
+                            Yes! BluBills is fully responsive and works seamlessly on all devices - desktop computers, tablets, and mobile phones. You can create and send invoices from anywhere, at any time.
                         </div>
                     </div>
                 </div>
@@ -2025,11 +2109,11 @@
                 <div class="faq-item scroll-reveal">
                     <button class="faq-question">
                         <span>What GST reports can I generate?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Invoice Prime generates all essential GST reports including GSTR-1, GSTR-3B, and detailed sales reports. Our system automatically organizes your data for easy GST filing, saving you hours of manual work.
+                            BluBills generates all essential GST reports including GSTR-1, GSTR-3B, and detailed sales reports. Our system automatically organizes your data for easy GST filing, saving you hours of manual work.
                         </div>
                     </div>
                 </div>
@@ -2037,7 +2121,7 @@
                 <div class="faq-item scroll-reveal">
                     <button class="faq-question">
                         <span>Is my data secure?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
@@ -2048,12 +2132,12 @@
 
                 <div class="faq-item scroll-reveal">
                     <button class="faq-question">
-                        <span>How do I get started with Invoice Prime?</span>
-                        <span class="faq-icon">▼</span>
+                        <span>How do I get started with BluBills?</span>
+                        <span class="faq-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Getting started is easy! Book a free demo using the contact form above or reach out via WhatsApp. Our team will guide you through the setup process and provide personalized training to help you make the most of Invoice Prime.
+                            Getting started is easy! Book a free demo using the contact form above or reach out via WhatsApp. Our team will guide you through the setup process and provide personalized training to help you make the most of BluBills.
                         </div>
                     </div>
                 </div>
@@ -2080,17 +2164,17 @@
                             <rect x="19" y="28" width="16" height="2.5" rx="1.25" fill="white" fill-opacity="0.75"/>
                             <path d="M28 34.5L29.8 37.2L33 36.3L31.5 39.2L33.5 41.5L30.2 41.3L28 44L25.8 41.3L22.5 41.5L24.5 39.2L23 36.3L26.2 37.2Z" fill="#FCD34D" fill-opacity="0.97"/>
                         </svg>
-                        <span class="footer-logo-text">Invoice Prime</span>
+                        <span class="footer-logo-text"><span style="-webkit-text-fill-color:#fff;color:#fff;">Blu</span><span style="background:linear-gradient(135deg,#F5A623,#FFD166);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Bills</span></span>
                     </div>
                     <p class="footer-description">
                         India's smartest GST invoicing software, managed by certified CAs and finance experts. 
                         Transform your business with professional invoicing and complimentary tax advisory.
                     </p>
                     <div class="footer-social">
-                        <a href="#" class="social-icon">📘</a>
-                        <a href="#" class="social-icon">🐦</a>
-                        <a href="#" class="social-icon">📷</a>
-                        <a href="#" class="social-icon">💼</a>
+                        <a href="#" class="social-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+                        <a href="#" class="social-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+                        <a href="#" class="social-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="#" class="social-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
                     </div>
                 </div>
 
@@ -2126,7 +2210,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 Invoice Prime. All rights reserved. Managed by Professionals | Making GST Compliance Effortless</p>
+                <p>&copy; 2024 BluBills. All rights reserved. Managed by Professionals | Making GST Compliance Effortless</p>
             </div>
         </div>
     </footer>
@@ -2268,10 +2352,31 @@
             }
         });
 
-        // Mobile menu toggle (basic implementation)
+        // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        mobileMenuBtn?.addEventListener('click', () => {
-            alert('Mobile menu - to be implemented based on your design preferences');
+        const mobileMenuDrawer = document.getElementById('mobileMenuDrawer');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        function openMobileMenu() {
+            mobileMenuDrawer.style.display = 'flex';
+            mobileMenuOverlay.classList.add('open');
+            requestAnimationFrame(() => mobileMenuDrawer.classList.add('open'));
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            mobileMenuDrawer.classList.remove('open');
+            mobileMenuOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+            setTimeout(() => { mobileMenuDrawer.style.display = ''; }, 350);
+        }
+
+        mobileMenuBtn?.addEventListener('click', openMobileMenu);
+        mobileMenuClose?.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay?.addEventListener('click', closeMobileMenu);
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
         });
 
         // Smooth scrolling for anchor links
@@ -2359,7 +2464,7 @@
                 timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
             };
 
-            submitBtn.textContent = '⏳ Submitting...';
+            submitBtn.textContent = 'Submitting...';
             submitBtn.disabled = true;
 
             try {
@@ -2370,11 +2475,11 @@
                     body: JSON.stringify(formData)
                 });
 
-                submitBtn.textContent = '✅ Success! Opening WhatsApp...';
+                submitBtn.textContent = 'Success! Opening WhatsApp...';
                 submitBtn.style.background = '#10B981';
 
                 const whatsappMessage = encodeURIComponent(
-                    `Hi! I want to book a free demo of Invoice Prime.\n\n` +
+                    `Hi! I want to book a free demo of BluBills.\n\n` +
                     `Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n` +
                     `Business: ${formData.business || 'N/A'}\nCity: ${formData.city || 'N/A'}\n` +
                     `Message: ${formData.message || 'N/A'}`
@@ -2393,7 +2498,7 @@
             } catch (error) {
                 console.error('Error:', error);
                 const whatsappMessage = encodeURIComponent(
-                    `Hi! I want to book a free demo of Invoice Prime.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}`
+                    `Hi! I want to book a free demo of BluBills.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}`
                 );
                 window.open(`https://wa.me/919638001444?text=${whatsappMessage}`, '_blank');
                 modal.classList.remove('active');
@@ -2404,7 +2509,7 @@
             }
         });
 
-        console.log('✅ Invoice Prime loaded successfully!');
+        console.log('BluBills loaded successfully!');
         
         }); // End DOMContentLoaded
     </script>
