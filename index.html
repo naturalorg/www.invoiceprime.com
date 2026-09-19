@@ -22,28 +22,29 @@
         }
 
         :root {
-            --primary: #4338CA;
-            --primary-light: #6366F1;
-            --primary-dark: #3730A3;
+            --primary: #E8491D;
+            --primary-light: #FF6B3D;
+            --primary-dark: #B8360F;
             --gold: #F5A623;
             --gold-light: #FFD166;
             --gold-dark: #C47A00;
-            --bg: #FAFBFF;
-            --bg-dark: #F5F7FF;
-            --surface: #FFFFFF;
-            --text: #1A1A2E;
-            --text-light: #4A4A68;
-            --text-lighter: #6B7280;
-            --border: #E5E7EB;
-            --border-light: #F3F4F6;
+            --bg: #F4EEE4;
+            --bg-dark: #EDE5D6;
+            --surface: #FAF6EE;
+            --ink: #17140F;
+            --text: #1A1712;
+            --text-light: #57503F;
+            --text-lighter: #8A8271;
+            --border: #DED4BF;
+            --border-light: #E9E1D0;
             --success: #10B981;
-            --gradient-primary: linear-gradient(135deg, #4338CA 0%, #6366F1 100%);
+            --gradient-primary: linear-gradient(135deg, #E8491D 0%, #FF6B3D 100%);
             --gradient-gold: linear-gradient(135deg, #F5A623 0%, #FFD166 100%);
-            --gradient-hero: linear-gradient(180deg, #FAFBFF 0%, #F0F2FF 100%);
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-            --shadow-lg: 0 10px 25px rgba(67, 56, 202, 0.1);
-            --shadow-xl: 0 20px 40px rgba(67, 56, 202, 0.15);
+            --gradient-hero: linear-gradient(180deg, #F4EEE4 0%, #EDE2D0 100%);
+            --shadow-sm: 0 1px 2px rgba(23, 20, 15, 0.06);
+            --shadow-md: 0 4px 6px rgba(23, 20, 15, 0.08);
+            --shadow-lg: 0 10px 25px rgba(23, 20, 15, 0.12);
+            --shadow-xl: 0 20px 40px rgba(23, 20, 15, 0.16);
         }
 
         body {
@@ -60,6 +61,16 @@
             font-weight: 700;
             line-height: 1.2;
             color: var(--text);
+            letter-spacing: -0.01em;
+        }
+
+        .eyebrow {
+            font-family: 'DM Sans', monospace;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-lighter);
         }
 
         /* Utility Classes */
@@ -81,9 +92,9 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(244, 238, 228, 0.92);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border);
             z-index: 1000;
             transition: all 0.3s ease;
         }
@@ -123,9 +134,11 @@
         }
 
         .logo-subtitle {
-            font-size: 11px;
+            font-size: 10px;
             color: var(--text-lighter);
-            font-weight: 500;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
             margin-top: -4px;
         }
 
@@ -139,8 +152,10 @@
         .nav-links a {
             color: var(--text-light);
             text-decoration: none;
-            font-weight: 500;
-            font-size: 15px;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
             transition: color 0.2s;
         }
 
@@ -170,9 +185,9 @@
             align-items: center;
             gap: 8px;
             padding: 12px 24px;
-            border-radius: 12px;
+            border-radius: 100px;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
             text-decoration: none;
             border: none;
             cursor: pointer;
@@ -181,25 +196,26 @@
         }
 
         .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-            box-shadow: 0 4px 14px rgba(67, 56, 202, 0.3);
+            background: var(--ink);
+            color: var(--surface);
+            box-shadow: 0 4px 14px rgba(23, 20, 15, 0.25);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(67, 56, 202, 0.4);
+            background: var(--primary);
+            box-shadow: 0 6px 20px rgba(232, 73, 29, 0.35);
         }
 
         .btn-outline {
             background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+            color: var(--text);
+            border: 1.5px solid var(--text);
         }
 
         .btn-outline:hover {
-            background: var(--primary);
-            color: white;
+            background: var(--text);
+            color: var(--surface);
         }
 
         .btn-gold {
@@ -220,100 +236,16 @@
         }
 
         /* Hero Section */
-        .hero {
-            padding: 140px 0 80px;
-            background: var(--gradient-hero);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(245, 166, 35, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 15s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, -30px) scale(1.1); }
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-text h1 {
-            font-size: 56px;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            animation: slideUp 0.8s ease;
-        }
-
-        .hero-text h1 .highlight {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-text h1 .highlight-gold {
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 20px;
-            color: var(--text-light);
-            margin-bottom: 32px;
-            line-height: 1.6;
-            animation: slideUp 0.8s ease 0.2s backwards;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            animation: slideUp 0.8s ease 0.4s backwards;
-        }
-
-        .hero-badges {
-            display: flex;
-            gap: 24px;
-            margin-top: 32px;
-            flex-wrap: wrap;
-            animation: slideUp 0.8s ease 0.6s backwards;
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
         }
 
         .badge {
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-light);
         }
 
@@ -323,15 +255,308 @@
             color: var(--success);
         }
 
-        .hero-image {
+        /* ============================================================
+           CINEMATIC PINNED-3D HERO + SCROLL STORY
+           ============================================================ */
+        .story-wrap {
             position: relative;
-            animation: slideUp 0.8s ease 0.3s backwards;
+            background: var(--gradient-hero);
+            height: 400vh;
         }
 
-        .hero-image img {
+        .hero-grid-lines {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 60px;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.5;
+        }
+        .hero-grid-lines span {
+            width: 1px;
+            height: 100%;
+            background: var(--border);
+        }
+
+        .story-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
             width: 100%;
-            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: -100vh;
+        }
+
+        #hero3DCanvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .story-fallback-glow {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 60vw; height: 60vw;
+            max-width: 700px; max-height: 700px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(232, 73, 29, 0.25) 0%, rgba(232, 73, 29, 0.05) 45%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulseGlow 6s ease-in-out infinite;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+        }
+
+        .story-panel {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 60px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .story-panel > * { pointer-events: auto; }
+
+        .story-panel-hero {
+            justify-content: flex-start;
+            align-items: stretch;
+            text-align: left;
+            padding: 130px 60px 60px;
+        }
+
+        .hero-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero-scroll-cue { animation: bounce 2s ease-in-out infinite; }
+
+        .hero-bottom-row {
+            flex: 1;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding-bottom: 20px;
+        }
+
+        .hero-mega-title {
+            font-size: clamp(56px, 9vw, 130px);
+            line-height: 0.92;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin: 0;
+            animation: slideUp 0.8s ease;
+        }
+
+        .hero-mega-sub {
+            max-width: 420px;
+            font-size: 18px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 6px;
+            animation: slideUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-accent { color: var(--primary); font-weight: 600; }
+
+        .hero-cta-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+            animation: slideUp 0.8s ease 0.4s backwards;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 24px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+            animation: slideUp 0.8s ease 0.6s backwards;
+        }
+
+        .story-line {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: clamp(24px, 3.6vw, 44px);
+            line-height: 1.3;
+            max-width: 900px;
+            color: var(--text-lighter);
+            opacity: 0.35;
+            transition: opacity 0.6s ease, color 0.6s ease, transform 0.6s ease;
+            transform: translateY(16px);
+        }
+        .story-panel.in-view .story-line {
+            opacity: 1;
+            color: var(--text);
+            transform: translateY(0);
+        }
+        .story-line-sub {
+            font-size: clamp(16px, 2vw, 20px);
+            font-weight: 500;
+            margin-top: 12px;
+            color: var(--text-lighter);
+        }
+        .story-panel.in-view .story-line-sub { color: var(--text-light); }
+
+        .story-accent { color: var(--primary); }
+
+        @media (max-width: 768px) {
+            .hero-grid-lines { display: none; }
+            .story-wrap { height: 320vh; }
+            .story-panel { padding: 0 24px; }
+            .story-panel-hero { padding: 110px 24px 40px; }
+            .hero-mega-sub { max-width: 100%; }
+        }
+
+        /* Hero product dashboard mockup (replaces static photo) */
+        .dash-skyline {
+            position: absolute;
+            inset: -30px;
+            border-radius: 28px;
+            overflow: hidden;
+            filter: blur(1.5px);
+            z-index: 0;
+            opacity: 0.9;
+        }
+        .dash-skyline svg { width: 100%; height: 100%; display: block; }
+
+        .dash-float-wrap {
+            animation: heroFloat 7s ease-in-out infinite;
+        }
+
+        .dash-card {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 22px;
             box-shadow: var(--shadow-xl);
+            padding: 22px;
+        }
+
+        .dash-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .dash-logo {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        .dash-logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gradient-primary); display: inline-block; }
+        .dash-search {
+            flex: 1;
+            max-width: 150px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 11px;
+            color: var(--text-lighter);
+        }
+        .dash-user { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        .dash-bell, .dash-avatar {
+            width: 26px; height: 26px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .dash-bell { background: var(--text); color: white; }
+        .dash-avatar { background: var(--gradient-gold); color: white; font-size: 10px; font-weight: 700; }
+        .dash-username { font-size: 12px; font-weight: 600; color: var(--text); line-height: 1.2; display: none; }
+        .dash-username small { display: block; font-weight: 400; color: var(--text-lighter); font-size: 10px; }
+
+        .dash-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
+        .dash-stat { background: var(--text); border-radius: 12px; padding: 12px 10px; color: white; display: flex; flex-direction: column; gap: 4px; }
+        .dash-stat-label { font-size: 10px; opacity: 0.75; }
+        .dash-stat-number { font-family: 'Sora', sans-serif; font-size: 19px; font-weight: 700; }
+        .dash-stat-percent::after { content: '%'; font-size: 13px; }
+        .dash-stat-trend { font-size: 9px; color: #86EFAC; }
+
+        .dash-chart-card {
+            background: linear-gradient(135deg, #EEF0FD 0%, #F5F0FF 100%);
+            border-radius: 14px;
+            padding: 16px;
+            position: relative;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        .dash-chart-head { display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+        .dash-pill { background: white; border-radius: 20px; padding: 3px 10px; font-size: 10px; color: var(--text-lighter); font-weight: 500; }
+        .dash-chart-tooltip {
+            position: absolute;
+            top: 34px; left: 54%;
+            background: var(--text);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.5s ease 1.2s, transform 0.5s ease 1.2s;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        .dash-chart-tooltip small { display: block; font-size: 9px; font-weight: 400; opacity: 0.75; }
+        .dash-card.revealed .dash-chart-tooltip { opacity: 1; transform: translateY(0); }
+
+        .dash-chart-svg { width: 100%; height: 90px; display: block; }
+        .dash-chart-line { stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.3s; }
+        .dash-chart-area { opacity: 0; transition: opacity 0.8s ease 1.4s; }
+        .dash-card.revealed .dash-chart-line { stroke-dashoffset: 0; }
+        .dash-card.revealed .dash-chart-area { opacity: 1; }
+
+        .dash-bottom-row { display: grid; grid-template-columns: 1.4fr 1fr; gap: 10px; }
+        .dash-invoices { background: white; border: 1px solid var(--border-light); border-radius: 14px; padding: 12px 14px; }
+        .dash-invoices-head { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+        .dash-invoice-row { display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 6px 0; font-size: 10px; border-top: 1px solid var(--border-light); }
+        .dash-invoice-row:first-of-type { border-top: none; }
+        .dash-invoice-name { color: var(--text); font-weight: 500; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .dash-invoice-amt { color: var(--text-light); white-space: nowrap; }
+        .dash-badge { font-size: 8px; font-weight: 700; padding: 3px 7px; border-radius: 20px; white-space: nowrap; }
+        .dash-badge-paid { background: rgba(16, 185, 129, 0.12); color: var(--success); }
+        .dash-badge-pending { background: rgba(245, 166, 35, 0.12); color: var(--gold-dark); }
+
+        .dash-gauge-card { background: white; border: 1px solid var(--border-light); border-radius: 14px; padding: 12px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .dash-gauge-title { font-size: 10px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+        .dash-gauge-svg { width: 84px; height: 50px; }
+        .dash-gauge-arc { stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.4s; }
+        .dash-card.revealed .dash-gauge-arc { stroke-dashoffset: 2; }
+        .dash-gauge-number { font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 700; color: var(--text); margin-top: -6px; }
+        .dash-gauge-number::after { content: '%'; font-size: 10px; font-weight: 500; margin-left: 1px; }
+
+        @media (min-width: 640px) {
+            .dash-username { display: block; }
+        }
+        @media (max-width: 992px) {
+            .dash-search { display: none; }
+        }
+        @media (max-width: 480px) {
+            .dash-card { padding: 16px; }
+            .dash-stat-number { font-size: 16px; }
+            .dash-bottom-row { grid-template-columns: 1fr; }
         }
 
         @keyframes slideUp {
@@ -347,7 +572,7 @@
 
         /* Animated Counter Stats */
         .stats-counter {
-            background: linear-gradient(135deg, #4338CA 0%, #6366F1 100%);
+            background: linear-gradient(135deg, #17140F 0%, #2E271C 100%);
             padding: 80px 0;
             position: relative;
             overflow: hidden;
@@ -395,6 +620,7 @@
             content: '+';
             font-size: 36px;
             margin-left: 4px;
+            color: var(--primary-light);
         }
 
         .stat-item:nth-child(3) .stat-number::after {
@@ -478,9 +704,11 @@
             border: 1px solid var(--border-light);
             border-radius: 20px;
             padding: 36px;
-            transition: all 0.3s ease;
+            transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
         .feature-card::before {
@@ -549,7 +777,9 @@
             border: 2px solid var(--border-light);
             border-radius: 16px;
             padding: 32px;
-            transition: all 0.3s ease;
+            transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
         .insight-card:hover {
@@ -595,37 +825,119 @@
         }
 
         /* Screenshot Showcase */
-        .showcase {
-            padding: 100px 0;
-            background: var(--bg-dark);
+        /* How It Works — dark 3-pillar pipeline section */
+        .pipeline-section {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #17140F 0%, #221D16 100%);
+            color: #F4EEE4;
         }
 
-        .showcase-grid {
+        .pipeline-header { text-align: left; max-width: 700px; margin: 0 0 70px; }
+        .pipeline-eyebrow { color: var(--primary-light); }
+        .pipeline-title { color: #F4EEE4; font-size: 42px; margin-top: 12px; }
+
+        .pipeline-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin-top: 60px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
         }
 
-        .showcase-item {
+        .pipeline-col h3 {
+            color: #F4EEE4;
+            font-size: 22px;
+            margin: 20px 0 10px;
+        }
+        .pipeline-col p {
+            color: #B8AF9C;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .pipeline-num {
+            font-family: 'Sora', sans-serif;
+            font-weight: 800;
+            font-size: 15px;
+            color: var(--primary-light);
+            letter-spacing: 0.05em;
+        }
+
+        .pipeline-stack {
             position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            transition: transform 0.3s ease;
+            height: 260px;
+            margin-bottom: 12px;
         }
 
-        .showcase-item:hover {
-            transform: scale(1.02);
+        .pstack-card {
+            position: absolute;
+            inset: 0;
+            background: #2A241C;
+            border: 1px solid #3A3226;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+        }
+        .pstack-back {
+            transform: rotate(-4deg) translate(10px, 6px);
+            opacity: 0.7;
+        }
+        .pstack-front {
+            transform: rotate(2deg);
+        }
+        .pstack-accent { background: #33251A; border-color: var(--primary); }
+
+        .pstack-line {
+            height: 8px;
+            border-radius: 4px;
+            background: #4A4030;
+            margin-bottom: 10px;
+        }
+        .pstack-box {
+            margin-top: 16px;
+            height: 70px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #3A3226, #2A241C);
+            border: 1px dashed #5A5040;
+        }
+        .pstack-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #F4EEE4;
+            background: #4A4030;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+        .pstack-badge-live { background: var(--primary); }
+        .pstack-check {
+            font-size: 13px;
+            color: #E9E1D0;
+            padding: 6px 0;
+            border-bottom: 1px solid #3A3226;
+        }
+        .pstack-check.pstack-muted { color: #8A8271; }
+        .pstack-big {
+            font-family: 'Sora', sans-serif;
+            font-size: 40px;
+            font-weight: 800;
+            color: #F4EEE4;
+            margin-bottom: 10px;
         }
 
-        .showcase-item img {
-            width: 100%;
-            display: block;
+        .pipeline-stack-dash {
+            height: auto;
+            transform: scale(0.82);
+            transform-origin: top center;
+            margin-bottom: -46px;
+            position: relative;
         }
+        .pipeline-stack-dash .dash-skyline { inset: -20px; }
 
-        .showcase-item.large {
-            grid-column: span 2;
+        @media (max-width: 992px) {
+            .pipeline-grid { grid-template-columns: 1fr; gap: 64px; }
+            .pipeline-stack-dash { transform: scale(1); margin-bottom: 0; }
         }
 
         /* Mobile Screenshots Section */
@@ -849,6 +1161,9 @@
             border-radius: 20px;
             padding: 32px;
             position: relative;
+            transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
         .quote-icon {
@@ -1199,15 +1514,6 @@
 
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .hero-text h1 {
-                font-size: 44px;
-            }
-
             .showcase-grid {
                 grid-template-columns: 1fr;
             }
@@ -1247,19 +1553,11 @@
                 font-size: 20px;
             }
 
-            .hero {
-                padding: 100px 0 60px;
+            .hero-mega-sub {
+                font-size: 16px;
             }
 
-            .hero-text h1 {
-                font-size: 36px;
-            }
-
-            .hero-subtitle {
-                font-size: 17px;
-            }
-
-            .hero-cta {
+            .hero-cta-row {
                 flex-direction: column;
             }
 
@@ -1284,14 +1582,22 @@
         /* Animations */
         .scroll-reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+            transform: perspective(1000px) translateY(50px) rotateX(14deg) scale(0.96);
+            transform-origin: top center;
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .scroll-reveal.revealed {
             opacity: 1;
-            transform: translateY(0);
+            transform: perspective(1000px) translateY(0) rotateX(0deg) scale(1);
         }
+
+        /* Stagger cards inside grids so they cascade in rather than pop together */
+        .features-grid .scroll-reveal:nth-child(2), .insights-grid .scroll-reveal:nth-child(2), .testimonial-grid .scroll-reveal:nth-child(2) { transition-delay: .08s; }
+        .features-grid .scroll-reveal:nth-child(3), .insights-grid .scroll-reveal:nth-child(3), .testimonial-grid .scroll-reveal:nth-child(3) { transition-delay: .16s; }
+        .features-grid .scroll-reveal:nth-child(4), .insights-grid .scroll-reveal:nth-child(4) { transition-delay: .24s; }
+        .features-grid .scroll-reveal:nth-child(5), .insights-grid .scroll-reveal:nth-child(5) { transition-delay: .32s; }
+        .features-grid .scroll-reveal:nth-child(6), .insights-grid .scroll-reveal:nth-child(6) { transition-delay: .4s; }
         /* Modal Popup */
         .modal-overlay {
             display: none;
@@ -1430,6 +1736,84 @@
         }
         .mobile-menu-cta { margin-top: 24px; }
 
+        /* ============================================================
+           MOTION GRAPHICS & 3D ENHANCEMENTS
+           ============================================================ */
+
+        /* Respect users who've asked for less motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+
+        /* Every section becomes a stage: content stays above decorative blobs */
+        section { position: relative; }
+        section > .container, section > .container-wide { position: relative; z-index: 1; }
+
+        /* Ambient floating gradient blobs, injected by JS into each section */
+        .motion-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(55px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+            animation: blobFloat 18s ease-in-out infinite;
+        }
+        .motion-blob.primary { background: radial-gradient(circle, rgba(99,102,241,0.35), transparent 70%); }
+        .motion-blob.gold { background: radial-gradient(circle, rgba(245,166,35,0.3), transparent 70%); }
+
+        @keyframes blobFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            33% { transform: translate(35px, -30px) rotate(8deg) scale(1.12); }
+            66% { transform: translate(-25px, 20px) rotate(-6deg) scale(0.94); }
+        }
+
+        @media (max-width: 768px) {
+            .motion-blob { display: none; } /* keep mobile lightweight */
+        }
+
+        /* Idle float on feature icons, staggered so the grid feels alive */
+        .feature-icon { animation: iconIdle 4s ease-in-out infinite; transition: transform 0.3s ease; }
+        .feature-card:nth-child(2n) .feature-icon { animation-delay: 0.5s; }
+        .feature-card:nth-child(3n) .feature-icon { animation-delay: 1s; }
+        .feature-card:hover .feature-icon { transform: scale(1.1) rotate(-4deg); }
+
+        @keyframes iconIdle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .insight-icon { transition: transform 0.3s ease; }
+        .insight-card:hover .insight-icon { transform: scale(1.1) rotate(4deg); }
+
+        /* Smooth JS-driven tilt on the phone mockup instead of a hard snap */
+        .phone-frame { transition: transform 0.2s ease-out; }
+
+        /* Button shine sweep + tactile 3D press */
+        .btn { position: relative; overflow: hidden; }
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -75%;
+            width: 50%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.6s ease;
+        }
+        .btn:hover::after { left: 125%; }
+        .btn:active { transform: scale(0.97); }
+
+        /* Badge hover pop */
+        .badge { transition: transform 0.25s ease; }
+        .badge:hover { transform: translateY(-3px) scale(1.05); }
+
+        /* Stat items get a subtle lift-ready base for JS tilt */
+        .stat-item { transition: transform 0.25s ease-out; will-change: transform; }
+
     </style>
 </head>
 <body>
@@ -1505,8 +1889,8 @@
                     <svg class="logo-icon" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="g" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#4338CA"/>
-                                <stop offset="100%" stop-color="#6366F1"/>
+                                <stop offset="0%" stop-color="#E8491D"/>
+                                <stop offset="100%" stop-color="#FF6B3D"/>
                             </linearGradient>
                         </defs>
                         <path d="M28 4L8 12V28C8 39.5 17 49.5 28 52C39 49.5 48 39.5 48 28V12L28 4Z" fill="url(#g)"/>
@@ -1516,7 +1900,7 @@
                         <path d="M28 34.5L29.8 37.2L33 36.3L31.5 39.2L33.5 41.5L30.2 41.3L28 44L25.8 41.3L22.5 41.5L24.5 39.2L23 36.3L26.2 37.2Z" fill="#FCD34D" fill-opacity="0.97"/>
                     </svg>
                     <div>
-                        <div class="logo-text"><span style="-webkit-text-fill-color:#1A1A2E;color:#1A1A2E;">Blu</span><span style="background:linear-gradient(135deg,#F5A623,#FFD166);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Bills</span></div>
+                        <div class="logo-text"><span style="-webkit-text-fill-color:#1A1712;color:#1A1712;">Blu</span><span style="background:linear-gradient(135deg,#F5A623,#FFD166);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Bills</span></div>
                         <div class="logo-subtitle">Smart GST Billing</div>
                     </div>
                 </a>
@@ -1539,51 +1923,63 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>
-                        <span class="highlight">Transform Your Business</span><br>
-                        with Smart GST Invoicing
-                    </h1>
-                    <p class="hero-subtitle">
-                        India's most trusted invoicing software, managed by <strong>certified CAs and finance experts</strong>. 
-                        Get complimentary GST advisory with every subscription. Create professional invoices in seconds.
-                    </p>
-                    <div class="hero-cta">
-                        <button class="btn btn-primary btn-large open-modal">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg> Book Free Demo
-                        </button>
-                        <a href="https://naturalorg.github.io/client.mgt.com/" target="_blank" class="btn btn-outline btn-large">
-                            Login to Dashboard
-                        </a>
-                    </div>
-                    <div class="hero-badges">
-                        <div class="badge">
-                            <svg class="badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            Managed by Professional CAs
-                        </div>
-                        <div class="badge">
-                            <svg class="badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            Free GST Advisory Included
-                        </div>
-                        <div class="badge">
-                            <svg class="badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            100% Secure & Cloud-Based
-                        </div>
-                    </div>
+    <section class="story-wrap" id="storyWrap">
+        <div class="hero-grid-lines" aria-hidden="true">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="story-sticky">
+            <canvas id="hero3DCanvas"></canvas>
+            <div class="story-fallback-glow" aria-hidden="true"></div>
+        </div>
+
+        <div class="story-panel story-panel-hero">
+            <div class="hero-top-row">
+                <span class="eyebrow">GST Billing · Powered by AI</span>
+                <span class="eyebrow hero-scroll-cue">Scroll Down ↓</span>
+            </div>
+            <div class="hero-bottom-row">
+                <h1 class="hero-mega-title">Meet<br>BluBills</h1>
+                <p class="hero-mega-sub">
+                    BluBills redefines GST invoicing, empowering you to scale compliance,
+                    protect what matters, and file faster — unlocking your <span class="hero-accent">revenue potential.</span>
+                </p>
+            </div>
+            <div class="hero-cta-row">
+                <button class="btn btn-primary btn-large open-modal">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 010 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg> Book Free Demo
+                </button>
+                <a href="https://naturalorg.github.io/client.mgt.com/" target="_blank" class="btn btn-outline btn-large">
+                    Login to Dashboard
+                </a>
+            </div>
+            <div class="hero-badges">
+                <div class="badge">
+                    <svg class="badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    Managed by Professional CAs
                 </div>
-                <div class="hero-image">
-                    <img src="assets/hero-professional-woman.jpg" alt="Professional working on BluBills software">
+                <div class="badge">
+                    <svg class="badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    Free GST Advisory Included
+                </div>
+                <div class="badge">
+                    <svg class="badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    100% Secure & Cloud-Based
                 </div>
             </div>
+        </div>
+
+        <div class="story-panel">
+            <p class="story-line">BluBills leverages <span class="story-accent">AI-Powered Compliance</span>,
+                transforming manual invoicing into adaptable, intelligent billing systems for growing businesses.</p>
+        </div>
+
+        <div class="story-panel">
+            <p class="story-line">AI automation combined with our <span class="story-accent">certified CA network</span>.</p>
+            <p class="story-line story-line-sub">Turns paperwork into audit-ready records.</p>
+        </div>
+
+        <div class="story-panel">
+            <p class="story-line">This is <span class="story-accent">Effortless Compliance.</span></p>
         </div>
     </section>
 
@@ -1759,23 +2155,155 @@
     </section>
 
     <!-- Screenshot Showcase -->
-    <section class="showcase" id="how-it-works">
+    <section class="pipeline-section" id="how-it-works">
         <div class="container-wide">
-            <div class="section-header scroll-reveal">
-                <span class="section-tag">See It In Action</span>
-                <h2 class="section-title">Powerful Features,<br>Beautiful Interface</h2>
-                <p class="section-subtitle">Experience the simplicity of professional invoicing</p>
+            <div class="section-header pipeline-header scroll-reveal">
+                <span class="eyebrow pipeline-eyebrow">How It Works</span>
+                <h2 class="section-title pipeline-title">From Paperwork to<br>Compliance, Automatically</h2>
             </div>
 
-            <div class="showcase-grid">
-                <div class="showcase-item large scroll-reveal">
-                    <img src="assets/screenshot-dashboard.jpg" alt="BluBills Dashboard">
+            <div class="pipeline-grid">
+                <div class="pipeline-col scroll-reveal">
+                    <div class="pipeline-stack">
+                        <div class="pstack-card pstack-back">
+                            <div class="pstack-line" style="width:70%"></div>
+                            <div class="pstack-line" style="width:50%"></div>
+                            <div class="pstack-line" style="width:60%"></div>
+                        </div>
+                        <div class="pstack-card pstack-front">
+                            <div class="pstack-badge">Scanning…</div>
+                            <div class="pstack-line" style="width:80%"></div>
+                            <div class="pstack-line" style="width:55%"></div>
+                            <div class="pstack-box"></div>
+                        </div>
+                    </div>
+                    <div class="pipeline-num">01</div>
+                    <h3>Capture</h3>
+                    <p>Import invoices, expenses and GST data in seconds — scan, upload, or sync directly from your billing tools.</p>
                 </div>
-                <div class="showcase-item scroll-reveal">
-                    <img src="assets/screenshot-invoice.jpg" alt="Create Invoice">
+
+                <div class="pipeline-col scroll-reveal">
+                    <div class="pipeline-stack pipeline-stack-dash">
+                        <div class="dash-skyline" aria-hidden="true">
+                            <svg viewBox="0 0 600 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="skySky2" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#3A3226"/>
+                                        <stop offset="100%" stop-color="#251F17"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect x="0" y="0" width="600" height="300" fill="url(#skySky2)"/>
+                                <g fill="#4A4030" opacity="0.6">
+                                    <rect x="0" y="150" width="35" height="150"/>
+                                    <rect x="45" y="110" width="26" height="190"/>
+                                    <rect x="470" y="130" width="30" height="170"/>
+                                    <rect x="545" y="160" width="38" height="140"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="dash-float-wrap">
+                            <div class="dash-card scroll-reveal" id="dashCard">
+                                <div class="dash-topbar">
+                                    <div class="dash-logo"><span class="dash-logo-dot"></span> BluBills</div>
+                                    <div class="dash-search">Search invoices…</div>
+                                    <div class="dash-user">
+                                        <span class="dash-bell"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></span>
+                                        <span class="dash-avatar">AR</span>
+                                        <span class="dash-username">Aditi Rao<small>Finance Head</small></span>
+                                    </div>
+                                </div>
+                                <div class="dash-stats">
+                                    <div class="dash-stat">
+                                        <span class="dash-stat-label">Invoices Sent</span>
+                                        <span class="dash-stat-number" data-target="12480">0</span>
+                                        <span class="dash-stat-trend">↑ vs last month</span>
+                                    </div>
+                                    <div class="dash-stat">
+                                        <span class="dash-stat-label">GST Filed</span>
+                                        <span class="dash-stat-number dash-stat-percent" data-target="99.9">0</span>
+                                        <span class="dash-stat-trend">↑ on time</span>
+                                    </div>
+                                    <div class="dash-stat">
+                                        <span class="dash-stat-label">Active Clients</span>
+                                        <span class="dash-stat-number" data-target="340">0</span>
+                                        <span class="dash-stat-trend">↑ vs last month</span>
+                                    </div>
+                                </div>
+                                <div class="dash-chart-card">
+                                    <div class="dash-chart-head">
+                                        <span>Revenue Overview</span>
+                                        <span class="dash-pill">Monthly</span>
+                                    </div>
+                                    <div class="dash-chart-tooltip">₹8.4L<small>this month</small></div>
+                                    <svg class="dash-chart-svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+                                        <defs>
+                                            <linearGradient id="dashAreaFill" x1="0" y1="0" x2="0" y2="1">
+                                                <stop offset="0%" stop-color="#4338CA" stop-opacity="0.35"/>
+                                                <stop offset="100%" stop-color="#4338CA" stop-opacity="0"/>
+                                            </linearGradient>
+                                        </defs>
+                                        <path class="dash-chart-area" d="M0,110 C40,100 60,60 100,65 C140,70 160,110 200,100 C240,90 260,40 300,35 C340,30 360,70 400,55 C440,40 460,20 500,15 L500,150 L0,150 Z" fill="url(#dashAreaFill)"/>
+                                        <path class="dash-chart-line" pathLength="100" d="M0,110 C40,100 60,60 100,65 C140,70 160,110 200,100 C240,90 260,40 300,35 C340,30 360,70 400,55 C440,40 460,20 500,15" fill="none" stroke="#4338CA" stroke-width="3" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="dash-bottom-row">
+                                    <div class="dash-invoices">
+                                        <div class="dash-invoices-head">Recent Invoices</div>
+                                        <div class="dash-invoice-row">
+                                            <span class="dash-invoice-name">Sharma Textiles</span>
+                                            <span class="dash-invoice-amt">₹84,200</span>
+                                            <span class="dash-badge dash-badge-paid">Paid</span>
+                                        </div>
+                                        <div class="dash-invoice-row">
+                                            <span class="dash-invoice-name">Verma Traders</span>
+                                            <span class="dash-invoice-amt">₹1,12,500</span>
+                                            <span class="dash-badge dash-badge-pending">Pending</span>
+                                        </div>
+                                        <div class="dash-invoice-row">
+                                            <span class="dash-invoice-name">Kapoor Exports</span>
+                                            <span class="dash-invoice-amt">₹46,900</span>
+                                            <span class="dash-badge dash-badge-paid">Paid</span>
+                                        </div>
+                                    </div>
+                                    <div class="dash-gauge-card">
+                                        <div class="dash-gauge-title">On-Time Filing</div>
+                                        <svg class="dash-gauge-svg" viewBox="0 0 120 70">
+                                            <defs>
+                                                <linearGradient id="dashGaugeGrad" x1="0" y1="0" x2="1" y2="0">
+                                                    <stop offset="0%" stop-color="#4338CA"/>
+                                                    <stop offset="100%" stop-color="#F5A623"/>
+                                                </linearGradient>
+                                            </defs>
+                                            <path d="M10,65 A50,50 0 0,1 110,65" fill="none" stroke="#E5E7EB" stroke-width="10" stroke-linecap="round"/>
+                                            <path class="dash-gauge-arc" pathLength="100" d="M10,65 A50,50 0 0,1 110,65" fill="none" stroke="url(#dashGaugeGrad)" stroke-width="10" stroke-linecap="round"/>
+                                        </svg>
+                                        <div class="dash-gauge-number" data-target="98">0</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pipeline-num">02</div>
+                    <h3>Automate</h3>
+                    <p>AI-powered reconciliation and rule-based compliance checks turn hours of bookkeeping into minutes.</p>
                 </div>
-                <div class="showcase-item scroll-reveal">
-                    <img src="assets/screenshot-reports.jpg" alt="GST Reports">
+
+                <div class="pipeline-col scroll-reveal">
+                    <div class="pipeline-stack">
+                        <div class="pstack-card pstack-back">
+                            <div class="pstack-check">✓ GSTR-1 Filed</div>
+                            <div class="pstack-check">✓ GSTR-3B Filed</div>
+                            <div class="pstack-check pstack-muted">◦ Annual Return</div>
+                        </div>
+                        <div class="pstack-card pstack-front pstack-accent">
+                            <div class="pstack-badge pstack-badge-live">Filed On Time</div>
+                            <div class="pstack-big">98%</div>
+                            <div class="pstack-line" style="width:60%"></div>
+                        </div>
+                    </div>
+                    <div class="pipeline-num">03</div>
+                    <h3>File</h3>
+                    <p>One-click GST filing with real-time compliance status, reviewed by certified CAs before submission.</p>
                 </div>
             </div>
         </div>
@@ -1793,25 +2321,25 @@
             <div class="mobile-content">
                 <div class="mobile-features scroll-reveal">
                     <div class="mobile-feature">
-                        <div class="mobile-feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+                        <div class="mobile-feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E8491D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
                         <h3>Create Invoices On The Go</h3>
                         <p>Generate professional GST invoices from anywhere, anytime with just a few taps</p>
                     </div>
 
                     <div class="mobile-feature">
-                        <div class="mobile-feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                        <div class="mobile-feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E8491D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
                         <h3>Real-Time Analytics</h3>
                         <p>Check your revenue, expenses, and profit margins instantly on your mobile</p>
                     </div>
 
                     <div class="mobile-feature">
-                        <div class="mobile-feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div>
+                        <div class="mobile-feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E8491D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div>
                         <h3>Instant Notifications</h3>
                         <p>Get alerts for payments received, invoices due, and important updates</p>
                     </div>
 
                     <div class="mobile-feature">
-                        <div class="mobile-feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div>
+                        <div class="mobile-feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E8491D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div>
                         <h3>Cloud Sync</h3>
                         <p>All your data syncs automatically across mobile, tablet, and desktop</p>
                     </div>
@@ -2154,8 +2682,8 @@
                         <svg class="logo-icon" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="g2" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0%" stop-color="#4338CA"/>
-                                    <stop offset="100%" stop-color="#6366F1"/>
+                                    <stop offset="0%" stop-color="#E8491D"/>
+                                    <stop offset="100%" stop-color="#FF6B3D"/>
                                 </linearGradient>
                             </defs>
                             <path d="M28 4L8 12V28C8 39.5 17 49.5 28 52C39 49.5 48 39.5 48 28V12L28 4Z" fill="url(#g2)"/>
@@ -2287,8 +2815,8 @@
             });
         }, { threshold: 0.5 });
 
-        // Observe all stat numbers
-        document.querySelectorAll('.stat-number').forEach(counter => {
+        // Observe all stat numbers (including the hero dashboard mockup's counters)
+        document.querySelectorAll('.stat-number, .dash-stat-number, .dash-gauge-number').forEach(counter => {
             counterObserver.observe(counter);
         });
 
@@ -2308,6 +2836,17 @@
 
         document.querySelectorAll('.scroll-reveal').forEach(el => {
             observer.observe(el);
+        });
+
+        // Story panel reveals (hero scroll-story text crossing the pinned 3D object)
+        const storyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                entry.target.classList.toggle('in-view', entry.isIntersecting);
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.story-panel').forEach(panel => {
+            storyObserver.observe(panel);
         });
 
         // Contact Form Submission (Google Sheets Integration)
@@ -2509,9 +3048,185 @@
             }
         });
 
+        // ============================================================
+        // MOTION GRAPHICS & 3D ENHANCEMENTS
+        // ============================================================
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isDesktopWidth = window.innerWidth > 900;
+
+        if (!prefersReducedMotion) {
+
+            // --- Generic 3D tilt for cards: rotates toward the cursor ---
+            function enable3DTilt(selector, { max = 8, scale = 1.03, perspective = 900, lift = 6 } = {}) {
+                document.querySelectorAll(selector).forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * max;
+                        const rotateX = -((y - rect.height / 2) / (rect.height / 2)) * max;
+                        card.style.transform =
+                            `perspective(${perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(${scale}, ${scale}, ${scale}) translateY(-${lift}px)`;
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = '';
+                    });
+                });
+            }
+
+            if (isDesktopWidth) {
+                enable3DTilt('.feature-card', { max: 7, lift: 8 });
+                enable3DTilt('.insight-card', { max: 5, lift: 5 });
+                enable3DTilt('.testimonial-card', { max: 7, lift: 6 });
+                enable3DTilt('.stat-item', { max: 10, scale: 1.05, lift: 4 });
+            }
+
+            // --- Phone mockup: dynamic 3D tilt instead of the fixed angle ---
+            const phoneFrame = document.querySelector('.phone-frame');
+            const mobileShowcase = document.querySelector('.mobile-showcase');
+            if (phoneFrame && mobileShowcase && isDesktopWidth) {
+                mobileShowcase.addEventListener('mousemove', (e) => {
+                    const rect = mobileShowcase.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+                    phoneFrame.style.transform = `perspective(1000px) rotateY(${-5 + x * 14}deg) rotateX(${-y * 8}deg)`;
+                });
+                mobileShowcase.addEventListener('mouseleave', () => {
+                    phoneFrame.style.transform = 'perspective(1000px) rotateY(-5deg)';
+                });
+            }
+
+            // --- Magnetic primary buttons: nudge gently toward the cursor ---
+            if (isDesktopWidth) {
+                document.querySelectorAll('.btn-primary, .btn-gold').forEach(btn => {
+                    btn.addEventListener('mousemove', (e) => {
+                        const rect = btn.getBoundingClientRect();
+                        const x = e.clientX - rect.left - rect.width / 2;
+                        const y = e.clientY - rect.top - rect.height / 2;
+                        btn.style.transform = `translate(${x * 0.15}px, ${y * 0.3}px)`;
+                    });
+                    btn.addEventListener('mouseleave', () => {
+                        btn.style.transform = '';
+                    });
+                });
+            }
+
+            // --- Ambient floating blobs: injected into every section for continuous motion ---
+            const skipBlobSections = ['hero', 'stats-counter', 'story-wrap'];
+            document.querySelectorAll('section').forEach((section, i) => {
+                if (skipBlobSections.some(c => section.classList.contains(c))) return;
+                if (window.getComputedStyle(section).position === 'static') {
+                    section.style.position = 'relative';
+                }
+                [{ top: '-50px', left: '-60px', size: 240 }, { bottom: '-60px', right: '-50px', size: 300 }]
+                    .forEach((pos, idx) => {
+                        const blob = document.createElement('div');
+                        blob.className = `motion-blob ${(i + idx) % 2 === 0 ? 'primary' : 'gold'}`;
+                        blob.style.width = pos.size + 'px';
+                        blob.style.height = pos.size + 'px';
+                        if (pos.top) blob.style.top = pos.top;
+                        if (pos.bottom) blob.style.bottom = pos.bottom;
+                        if (pos.left) blob.style.left = pos.left;
+                        if (pos.right) blob.style.right = pos.right;
+                        blob.style.animationDelay = `${idx * 2.5}s`;
+                        section.appendChild(blob);
+                    });
+            });
+        }
+
         console.log('BluBills loaded successfully!');
         
         }); // End DOMContentLoaded
+    </script>
+
+    <!-- Real 3D rotating hero object (pinned to the scroll-story section) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        (function () {
+            const canvas = document.getElementById('hero3DCanvas');
+            const stickyEl = document.querySelector('.story-sticky');
+            const storyWrap = document.getElementById('storyWrap');
+            if (!canvas || !stickyEl || !storyWrap || typeof THREE === 'undefined') return;
+
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const isSmall = window.innerWidth < 700;
+
+            let width = stickyEl.clientWidth;
+            let height = stickyEl.clientHeight;
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+            camera.position.set(0, 0, 30);
+
+            let renderer;
+            try {
+                renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+            } catch (e) {
+                return; // WebGL unavailable — CSS glow fallback behind the canvas still shows
+            }
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.setSize(width, height);
+
+            // Lighting: warm key light + cool rim light + soft ambient fill
+            scene.add(new THREE.HemisphereLight(0xF4EEE4, 0x17140F, 0.65));
+            const keyLight = new THREE.DirectionalLight(0xFF8A50, 1.6);
+            keyLight.position.set(6, 8, 10);
+            scene.add(keyLight);
+            const rimLight = new THREE.PointLight(0x8A8271, 0.9);
+            rimLight.position.set(-12, -6, -8);
+            scene.add(rimLight);
+
+            const segMultiplier = isSmall ? 0.5 : 1;
+            const geometry = new THREE.TorusKnotGeometry(8, 2.6, Math.floor(220 * segMultiplier), Math.floor(24 * segMultiplier), 2, 3);
+            const material = new THREE.MeshStandardMaterial({
+                color: 0xE8491D,
+                metalness: 0.35,
+                roughness: 0.4,
+                emissive: 0x2A1006,
+                emissiveIntensity: 0.4
+            });
+            const knot = new THREE.Mesh(geometry, material);
+            scene.add(knot);
+
+            function sizeToContainer() {
+                width = stickyEl.clientWidth;
+                height = stickyEl.clientHeight;
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, height);
+            }
+            window.addEventListener('resize', sizeToContainer);
+
+            function getScrollProgress() {
+                const rect = storyWrap.getBoundingClientRect();
+                const total = storyWrap.offsetHeight - window.innerHeight;
+                if (total <= 0) return 0;
+                const scrolled = -rect.top;
+                return Math.min(Math.max(scrolled / total, 0), 1);
+            }
+
+            let t = 0;
+            function animate() {
+                requestAnimationFrame(animate);
+                const progress = getScrollProgress();
+
+                if (!prefersReducedMotion) {
+                    t += 0.004;
+                    knot.rotation.x = t * 0.6 + progress * Math.PI * 1.4;
+                    knot.rotation.y = t + progress * Math.PI * 2.4;
+                } else {
+                    knot.rotation.x = progress * Math.PI * 0.6;
+                    knot.rotation.y = progress * Math.PI * 1.2;
+                }
+
+                const scale = 0.85 + progress * 0.9;
+                knot.scale.set(scale, scale, scale);
+                camera.position.z = 30 - progress * 8;
+
+                renderer.render(scene, camera);
+            }
+            animate();
+        })();
     </script>
 
 </body>
