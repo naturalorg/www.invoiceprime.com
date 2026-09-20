@@ -322,6 +322,30 @@
 
         .feature-story-final .story-line { margin-bottom: 0; }
 
+        .feature-story-wrap {
+            height: 500vh;
+        }
+
+        .capability-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 640px;
+        }
+        .capability-chip {
+            font-family: 'Sora', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 20px;
+            background: rgba(248, 248, 252, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: var(--text);
+            box-shadow: 0 6px 20px rgba(11, 11, 16, 0.1);
+        }
+
         .story-panel {
             position: relative;
             height: 100vh;
@@ -457,6 +481,7 @@
 
         @media (max-width: 768px) {
             .story-wrap { height: 320vh; }
+            .feature-story-wrap { height: 400vh; }
             .story-panel { padding: 0 24px; }
             .story-panel-hero { padding: 110px 24px 40px; }
             .hero-mega-sub { max-width: 100%; }
@@ -1960,15 +1985,15 @@
                     <svg class="logo-icon" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="g" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#4F46E5"/>
+                                <stop offset="0%" stop-color="#4338CA"/>
                                 <stop offset="100%" stop-color="#6366F1"/>
                             </linearGradient>
                         </defs>
-                        <path d="M28 4L8 12V28C8 39.5 17 49.5 28 52C39 49.5 48 39.5 48 28V12L28 4Z" fill="url(#g)"/>
-                        <rect x="19" y="18" width="18" height="2.5" rx="1.25" fill="white" fill-opacity="0.95"/>
-                        <rect x="19" y="23" width="14" height="2.5" rx="1.25" fill="white" fill-opacity="0.75"/>
-                        <rect x="19" y="28" width="16" height="2.5" rx="1.25" fill="white" fill-opacity="0.75"/>
-                        <path d="M28 34.5L29.8 37.2L33 36.3L31.5 39.2L33.5 41.5L30.2 41.3L28 44L25.8 41.3L22.5 41.5L24.5 39.2L23 36.3L26.2 37.2Z" fill="#FCD34D" fill-opacity="0.97"/>
+                        <path d="M28 3.94L7.88 12.03L7.88 28.66C7.88 40.25 17.5 49.88 28 52.5C38.5 49.88 48.13 40.25 48.13 28.66L48.13 12.03Z" fill="url(#g)"/>
+                        <rect x="19.03" y="18.38" width="17.94" height="2.52" rx="1.26" fill="white" fill-opacity="0.95"/>
+                        <rect x="19.03" y="23.19" width="14" height="2.52" rx="1.26" fill="white" fill-opacity="0.75"/>
+                        <rect x="19.03" y="28" width="15.97" height="2.52" rx="1.26" fill="white" fill-opacity="0.75"/>
+                        <path d="M28 34.5L29.53 36.97L32.27 36.09L30.84 38.5L32.6 40.69L29.86 40.47L28 42.88L26.14 40.47L23.4 40.69L25.16 38.5L23.73 36.09L26.47 36.97Z" fill="#FCD34D" fill-opacity="0.97"/>
                     </svg>
                     <div>
                         <div class="logo-text"><span style="-webkit-text-fill-color:#14141C;color:#14141C;">Blu</span><span style="background:linear-gradient(135deg,#F5A623,#FFD166);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Bills</span></div>
@@ -2099,108 +2124,25 @@
             <p class="story-line-sub">Backed by complete financial reports — GSTR-1, GSTR-3B, P&L, balance sheets and trial balances, instantly.</p>
         </div>
 
-        <div class="story-panel feature-story-final">
+        <div class="story-panel">
             <p class="story-line"><span class="story-accent">Inventory & Bank Reconciliation.</span> Track stock in real time and auto-match every transaction against your books.</p>
-            <p class="story-line" style="margin-top: 16px;">This is <span class="story-accent">Complete Accounting.</span></p>
+        </div>
+
+        <div class="story-panel feature-story-final">
+            <span class="eyebrow feature-eyebrow">Platform Capabilities</span>
+            <p class="story-line" style="margin-bottom: 20px;">Deep Insights Into Our System</p>
+            <div class="capability-grid">
+                <span class="capability-chip">Smart Data Management</span>
+                <span class="capability-chip">Secure Access Control</span>
+                <span class="capability-chip">Multi-User Collaboration</span>
+                <span class="capability-chip">Cloud Infrastructure</span>
+                <span class="capability-chip">Enterprise Security</span>
+                <span class="capability-chip">Advanced Reporting</span>
+            </div>
+            <p class="story-line" style="margin-top: 20px;">This is <span class="story-accent">Complete Accounting.</span></p>
         </div>
     </section>
 
-    <!-- Insights Section - How It Works -->
-    <section class="insights" id="insights">
-        <div class="container">
-            <div class="section-header scroll-reveal">
-                <span class="section-tag">Platform Capabilities</span>
-                <h2 class="section-title">Deep Insights Into Our System</h2>
-                <p class="section-subtitle">Understanding the powerful technology behind BluBills</p>
-            </div>
-
-            <div class="insights-grid">
-                <!-- Data Management -->
-                <div class="insight-card scroll-reveal">
-                    <div class="insight-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                    </div>
-                    <h3>Smart Data Management</h3>
-                    <p>Your business data organized intelligently</p>
-                    <ul class="insight-features">
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Automatic data organization</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Real-time synchronization</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Advanced search & filters</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Data export in multiple formats</li>
-                    </ul>
-                </div>
-
-                <!-- Access Control -->
-                <div class="insight-card scroll-reveal">
-                    <div class="insight-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                    </div>
-                    <h3>Secure Access Control</h3>
-                    <p>Control who can access what</p>
-                    <ul class="insight-features">
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Role-based permissions</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Activity logging & audit trails</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Two-factor authentication</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>IP restriction options</li>
-                    </ul>
-                </div>
-
-                <!-- Multiple Users -->
-                <div class="insight-card scroll-reveal">
-                    <div class="insight-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-                    </div>
-                    <h3>Multi-User Collaboration</h3>
-                    <p>Team-based workflow management</p>
-                    <ul class="insight-features">
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Unlimited team members</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Custom user roles</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Real-time collaboration</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Task assignment system</li>
-                    </ul>
-                </div>
-
-                <!-- Cloud Network -->
-                <div class="insight-card scroll-reveal">
-                    <div class="insight-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
-                    </div>
-                    <h3>Cloud Infrastructure</h3>
-                    <p>Built on AWS for 99.9% uptime</p>
-                    <ul class="insight-features">
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Auto-scaling servers</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Daily automated backups</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Global CDN delivery</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Lightning-fast performance</li>
-                    </ul>
-                </div>
-
-                <!-- Security -->
-                <div class="insight-card scroll-reveal">
-                    <div class="insight-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <h3>Enterprise Security</h3>
-                    <p>Military-grade data protection</p>
-                    <ul class="insight-features">
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>256-bit SSL encryption</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>GDPR compliant</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Regular security audits</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Secure data centers</li>
-                    </ul>
-                </div>
-
-                <!-- Reports -->
-                <div class="insight-card scroll-reveal">
-                    <div class="insight-icon" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-                    </div>
-                    <h3>Advanced Reporting</h3>
-                    <p>Powerful insights at your fingertips</p>
-                    <ul class="insight-features">
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>GSTR-1 & GSTR-3B reports</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Custom report builder</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Visual analytics dashboard</li>
-                        <li><span style="color:var(--primary);margin-right:8px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span>Export to PDF/Excel</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Screenshot Showcase -->
     <section class="pipeline-section" id="how-it-works">
@@ -2465,25 +2407,6 @@
                         </button>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Video Demo Section -->
-    <section class="video-demo">
-        <div class="container">
-            <div class="section-header scroll-reveal">
-                <span class="section-tag">Watch Demo</span>
-                <h2 class="section-title">See BluBills in Action</h2>
-                <p class="section-subtitle">Learn how easy it is to manage your books, invoicing and GST compliance</p>
-            </div>
-
-            <div class="video-container scroll-reveal">
-                <!-- Autoplay Video (no controls) -->
-                <video autoplay loop muted playsinline style="width: 100%; border-radius: 16px; box-shadow: var(--shadow-xl);">
-                    <source src="assets/demo-video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
             </div>
         </div>
     </section>
@@ -2753,15 +2676,15 @@
                         <svg class="logo-icon" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="g2" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0%" stop-color="#4F46E5"/>
+                                    <stop offset="0%" stop-color="#4338CA"/>
                                     <stop offset="100%" stop-color="#6366F1"/>
                                 </linearGradient>
                             </defs>
-                            <path d="M28 4L8 12V28C8 39.5 17 49.5 28 52C39 49.5 48 39.5 48 28V12L28 4Z" fill="url(#g2)"/>
-                            <rect x="19" y="18" width="18" height="2.5" rx="1.25" fill="white" fill-opacity="0.95"/>
-                            <rect x="19" y="23" width="14" height="2.5" rx="1.25" fill="white" fill-opacity="0.75"/>
-                            <rect x="19" y="28" width="16" height="2.5" rx="1.25" fill="white" fill-opacity="0.75"/>
-                            <path d="M28 34.5L29.8 37.2L33 36.3L31.5 39.2L33.5 41.5L30.2 41.3L28 44L25.8 41.3L22.5 41.5L24.5 39.2L23 36.3L26.2 37.2Z" fill="#FCD34D" fill-opacity="0.97"/>
+                            <path d="M28 3.94L7.88 12.03L7.88 28.66C7.88 40.25 17.5 49.88 28 52.5C38.5 49.88 48.13 40.25 48.13 28.66L48.13 12.03Z" fill="url(#g2)"/>
+                            <rect x="19.03" y="18.38" width="17.94" height="2.52" rx="1.26" fill="white" fill-opacity="0.95"/>
+                            <rect x="19.03" y="23.19" width="14" height="2.52" rx="1.26" fill="white" fill-opacity="0.75"/>
+                            <rect x="19.03" y="28" width="15.97" height="2.52" rx="1.26" fill="white" fill-opacity="0.75"/>
+                            <path d="M28 34.5L29.53 36.97L32.27 36.09L30.84 38.5L32.6 40.69L29.86 40.47L28 42.88L26.14 40.47L23.4 40.69L25.16 38.5L23.73 36.09L26.47 36.97Z" fill="#FCD34D" fill-opacity="0.97"/>
                         </svg>
                         <span class="footer-logo-text"><span style="-webkit-text-fill-color:#fff;color:#fff;">Blu</span><span style="background:linear-gradient(135deg,#F5A623,#FFD166);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Bills</span></span>
                     </div>
@@ -3331,7 +3254,7 @@
             }
         });
 
-        // Features: rotating 3D BluBills shield logo (built from the actual logo's SVG path)
+        // Features: rotating 3D BluBills shield logo — rebuilt precisely from the real logo's SVG path
         createPinnedScene({
             canvasId: 'featureLogoCanvas',
             wrapId: 'features',
@@ -3341,37 +3264,68 @@
             scaleAmp: 0.5,
             scaleMode: 'pulse',
             buildMesh: () => {
+                const SCALE = 0.045;
+                const DEPTH = 90;
+                // Center reference matches the logo's own 512x512 viewBox center
+                const CX = 256, CY = 258;
+                const tx = (x) => (x - CX);
+                const ty = (y) => (CY - y); // flip SVG y-down to Three.js y-up in one step
+
+                // Real shield outline: M256 36 L72 110 V262 C72 368 160 456 256 480 C352 456 440 368 440 262 V110 Z
                 const shieldShape = new THREE.Shape();
-                shieldShape.moveTo(28, 4);
-                shieldShape.lineTo(8, 12);
-                shieldShape.lineTo(8, 28);
-                shieldShape.bezierCurveTo(8, 39.5, 17, 49.5, 28, 52);
-                shieldShape.bezierCurveTo(39, 49.5, 48, 39.5, 48, 28);
-                shieldShape.lineTo(48, 12);
-                shieldShape.lineTo(28, 4);
+                shieldShape.moveTo(tx(256), ty(36));
+                shieldShape.lineTo(tx(72), ty(110));
+                shieldShape.lineTo(tx(72), ty(262));
+                shieldShape.bezierCurveTo(tx(72), ty(368), tx(160), ty(456), tx(256), ty(480));
+                shieldShape.bezierCurveTo(tx(352), ty(456), tx(440), ty(368), tx(440), ty(262));
+                shieldShape.lineTo(tx(440), ty(110));
+                shieldShape.lineTo(tx(256), ty(36));
 
                 const geometry = new THREE.ExtrudeGeometry(shieldShape, {
-                    depth: 9, bevelEnabled: true, bevelThickness: 2, bevelSize: 1.5, bevelSegments: 5
+                    depth: DEPTH, bevelEnabled: true, bevelThickness: 6, bevelSize: 5, bevelSegments: 5
                 });
-                geometry.center();
-                geometry.rotateX(Math.PI); // flip right-side-up (SVG y-down -> Three.js y-up)
-                geometry.scale(0.32, 0.32, 0.32);
+                geometry.translate(0, 0, -DEPTH / 2);
+                geometry.scale(SCALE, SCALE, SCALE);
 
                 const material = new THREE.MeshStandardMaterial({
-                    color: 0x4F46E5,
-                    metalness: 0.45,
-                    roughness: 0.3,
-                    emissive: 0x2A1D00,
-                    emissiveIntensity: 0.35
+                    color: 0x4338CA,
+                    metalness: 0.4,
+                    roughness: 0.32,
+                    emissive: 0x140B4A,
+                    emissiveIntensity: 0.4
                 });
                 const shield = new THREE.Mesh(geometry, material);
 
-                // Small gold accent sparkle, echoing the logo's star mark
-                const sparkleGeo = new THREE.OctahedronGeometry(1.6, 0);
-                const sparkleMat = new THREE.MeshStandardMaterial({ color: 0xF5A623, metalness: 0.5, roughness: 0.25, emissive: 0x4A2E00, emissiveIntensity: 0.4 });
-                const sparkle = new THREE.Mesh(sparkleGeo, sparkleMat);
-                sparkle.position.set(0, -3.5, 3.2);
-                shield.add(sparkle);
+                const frontZ = (DEPTH / 2) * SCALE + 0.15;
+                const lineMat = new THREE.MeshStandardMaterial({ color: 0xFFFFFF, roughness: 0.5, metalness: 0.05 });
+
+                // The three real document lines from the logo, as raised white bars on the shield face
+                [
+                    { x: 174, y: 168, w: 164, h: 23 },
+                    { x: 174, y: 212, w: 128, h: 23 },
+                    { x: 174, y: 256, w: 146, h: 23 }
+                ].forEach(line => {
+                    const barGeo = new THREE.BoxGeometry(line.w * SCALE, line.h * SCALE, 3 * SCALE);
+                    const bar = new THREE.Mesh(barGeo, lineMat);
+                    bar.position.set(tx(line.x + line.w / 2) * SCALE, ty(line.y + line.h / 2) * SCALE, frontZ);
+                    shield.add(bar);
+                });
+
+                // The real 12-point gold star mark from the logo, extruded and placed exactly where it sits on the shield
+                const starPts = [[256,316],[270,338],[295,330],[282,352],[298,372],[273,370],[256,392],[239,370],[214,372],[230,352],[217,330],[242,338]];
+                const starShape = new THREE.Shape();
+                starPts.forEach(([x, y], i) => {
+                    const px = tx(x), py = ty(y);
+                    if (i === 0) starShape.moveTo(px, py); else starShape.lineTo(px, py);
+                });
+                starShape.closePath();
+                const starGeo = new THREE.ExtrudeGeometry(starShape, { depth: 14, bevelEnabled: true, bevelThickness: 2, bevelSize: 2, bevelSegments: 3 });
+                starGeo.translate(0, 0, -7);
+                starGeo.scale(SCALE, SCALE, SCALE);
+                const starMat = new THREE.MeshStandardMaterial({ color: 0xFCD34D, metalness: 0.5, roughness: 0.25, emissive: 0x4A2E00, emissiveIntensity: 0.45 });
+                const star = new THREE.Mesh(starGeo, starMat);
+                star.position.z = frontZ + 0.05;
+                shield.add(star);
 
                 return shield;
             }
