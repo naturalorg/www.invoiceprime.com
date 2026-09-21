@@ -3141,7 +3141,7 @@
     <script>
         // Shared helper: builds a pinned, scroll-driven Three.js scene inside a sticky container.
         // Pauses rendering entirely when the section is scrolled out of view.
-        function createPinnedScene({ canvasId, wrapId, buildMesh, cameraZ = 30, cameraZEnd, segSmall = 0.5, scaleBase = 0.85, scaleAmp = 0.9, scaleMode = 'grow' }) {
+        function createPinnedScene({ canvasId, wrapId, buildMesh, cameraZ = 30, cameraZEnd, segSmall = 0.5, scaleBase = 0.85, scaleAmp = 0.9, scaleMode = 'grow', rotationMode = 'tumble' }) {
             const canvas = document.getElementById(canvasId);
             const wrapEl = document.getElementById(wrapId);
             const stickyEl = wrapEl ? wrapEl.querySelector('.story-sticky') : null;
@@ -3204,8 +3204,14 @@
 
                 if (!prefersReducedMotion) {
                     t += 0.004;
-                    mesh.rotation.x = t * 0.6 + progress * Math.PI * 1.4;
-                    mesh.rotation.y = t + progress * Math.PI * 2.4;
+                    if (rotationMode === 'spin') {
+                        mesh.rotation.x = Math.sin(t * 0.5) * 0.18;
+                        mesh.rotation.y = t + progress * Math.PI * 2.4;
+                        mesh.rotation.z = Math.sin(t * 0.35) * 0.08;
+                    } else {
+                        mesh.rotation.x = t * 0.6 + progress * Math.PI * 1.4;
+                        mesh.rotation.y = t + progress * Math.PI * 2.4;
+                    }
                 } else {
                     mesh.rotation.x = progress * Math.PI * 0.6;
                     mesh.rotation.y = progress * Math.PI * 1.2;
@@ -3263,6 +3269,7 @@
             scaleBase: 0.8,
             scaleAmp: 0.5,
             scaleMode: 'pulse',
+            rotationMode: 'spin',
             buildMesh: () => {
                 const SCALE = 0.045;
                 const DEPTH = 90;
@@ -3296,19 +3303,22 @@
                 });
                 const shield = new THREE.Mesh(geometry, material);
 
-                const frontZ = (DEPTH / 2) * SCALE + 0.15;
+                const frontZ = (DEPTH / 2) * SCALE + 0.5;
                 const lineMat = new THREE.MeshStandardMaterial({ color: 0xFFFFFF, roughness: 0.5, metalness: 0.05 });
 
-                // The three real document lines from the logo, as raised white bars on the shield face
+                // The three real document lines from the logo, mirrored on both faces so the spin always reads as the logo
                 [
                     { x: 174, y: 168, w: 164, h: 23 },
                     { x: 174, y: 212, w: 128, h: 23 },
                     { x: 174, y: 256, w: 146, h: 23 }
                 ].forEach(line => {
                     const barGeo = new THREE.BoxGeometry(line.w * SCALE, line.h * SCALE, 3 * SCALE);
-                    const bar = new THREE.Mesh(barGeo, lineMat);
-                    bar.position.set(tx(line.x + line.w / 2) * SCALE, ty(line.y + line.h / 2) * SCALE, frontZ);
-                    shield.add(bar);
+                    const barFront = new THREE.Mesh(barGeo, lineMat);
+                    barFront.position.set(tx(line.x + line.w / 2) * SCALE, ty(line.y + line.h / 2) * SCALE, frontZ);
+                    shield.add(barFront);
+                    const barBack = new THREE.Mesh(barGeo, lineMat);
+                    barBack.position.set(tx(line.x + line.w / 2) * SCALE, ty(line.y + line.h / 2) * SCALE, -frontZ);
+                    shield.add(barBack);
                 });
 
                 // The real 12-point gold star mark from the logo, extruded and placed exactly where it sits on the shield
@@ -3323,9 +3333,12 @@
                 starGeo.translate(0, 0, -7);
                 starGeo.scale(SCALE, SCALE, SCALE);
                 const starMat = new THREE.MeshStandardMaterial({ color: 0xFCD34D, metalness: 0.5, roughness: 0.25, emissive: 0x4A2E00, emissiveIntensity: 0.45 });
-                const star = new THREE.Mesh(starGeo, starMat);
-                star.position.z = frontZ + 0.05;
-                shield.add(star);
+                const starFront = new THREE.Mesh(starGeo, starMat);
+                starFront.position.z = frontZ + 0.05;
+                shield.add(starFront);
+                const starBack = new THREE.Mesh(starGeo, starMat);
+                starBack.position.z = -frontZ - 0.05;
+                shield.add(starBack);
 
                 return shield;
             }
